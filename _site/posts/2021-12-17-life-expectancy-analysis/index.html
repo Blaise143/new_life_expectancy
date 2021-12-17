@@ -95,7 +95,7 @@ code span.wa { font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Life Expectancy Analysis"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding","highlight","df_print"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["hide"]},{"type":"character","attributes":{},"value":["monochrome"]},{"type":"character","attributes":{},"value":["paged"]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Life Expectancy Analysis"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://example.com/norajones"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding","highlight","df_print"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["monochrome"]},{"type":"character","attributes":{},"value":["kable"]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2135,7 +2135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://github.com/hrbrmstr/hrbrthemes'>hrbrthemes</a></span><span class='op'>)</span>
@@ -2170,7 +2170,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"https://raw.githubusercontent.com/zackhamza01/Life-Expectancy/main/Life%20Expectancy%20Data.csv"</span><span class='op'>)</span>
@@ -2185,33 +2185,139 @@ Table 1
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>      Country Year     Status Life.expectancy Adult.Mortality
-1 Afghanistan 2015 Developing            65.0             263
-2 Afghanistan 2014 Developing            59.9             271
-3 Afghanistan 2013 Developing            59.9             268
-  infant.deaths Alcohol percentage.expenditure Hepatitis.B Measles
-1            62    0.01               71.27962          65    1154
-2            64    0.01               73.52358          62     492
-3            66    0.01               73.21924          64     430
-   BMI under.five.deaths Polio Total.expenditure Diphtheria HIV.AIDS
-1 19.1                83     6              8.16         65      0.1
-2 18.6                86    58              8.18         62      0.1
-3 18.1                89    62              8.13         64      0.1
-       GDP Population thinness..1.19.years thinness.5.9.years
-1 584.2592   33736494                 17.2               17.3
-2 612.6965     327582                 17.5               17.5
-3 631.7450   31731688                 17.7               17.7
-  Income.composition.of.resources Schooling
-1                           0.479      10.1
-2                           0.476      10.0
-3                           0.470       9.9</code></pre>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 1%" />
+<col style="width: 3%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 4%" />
+<col style="width: 2%" />
+<col style="width: 7%" />
+<col style="width: 4%" />
+<col style="width: 2%" />
+<col style="width: 1%" />
+<col style="width: 6%" />
+<col style="width: 2%" />
+<col style="width: 6%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: right;">Year</th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: right;">Life.expectancy</th>
+<th style="text-align: right;">Adult.Mortality</th>
+<th style="text-align: right;">infant.deaths</th>
+<th style="text-align: right;">Alcohol</th>
+<th style="text-align: right;">percentage.expenditure</th>
+<th style="text-align: right;">Hepatitis.B</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">BMI</th>
+<th style="text-align: right;">under.five.deaths</th>
+<th style="text-align: right;">Polio</th>
+<th style="text-align: right;">Total.expenditure</th>
+<th style="text-align: right;">Diphtheria</th>
+<th style="text-align: right;">HIV.AIDS</th>
+<th style="text-align: right;">GDP</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">thinness..1.19.years</th>
+<th style="text-align: right;">thinness.5.9.years</th>
+<th style="text-align: right;">Income.composition.of.resources</th>
+<th style="text-align: right;">Schooling</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2015</td>
+<td style="text-align: left;">Developing</td>
+<td style="text-align: right;">65.0</td>
+<td style="text-align: right;">263</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">71.27962</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">1154</td>
+<td style="text-align: right;">19.1</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">8.16</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">584.2592</td>
+<td style="text-align: right;">33736494</td>
+<td style="text-align: right;">17.2</td>
+<td style="text-align: right;">17.3</td>
+<td style="text-align: right;">0.479</td>
+<td style="text-align: right;">10.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2014</td>
+<td style="text-align: left;">Developing</td>
+<td style="text-align: right;">59.9</td>
+<td style="text-align: right;">271</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">73.52358</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">492</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">8.18</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">612.6965</td>
+<td style="text-align: right;">327582</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">17.5</td>
+<td style="text-align: right;">0.476</td>
+<td style="text-align: right;">10.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Afghanistan</td>
+<td style="text-align: right;">2013</td>
+<td style="text-align: left;">Developing</td>
+<td style="text-align: right;">59.9</td>
+<td style="text-align: right;">268</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">73.21924</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">8.13</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">631.7450</td>
+<td style="text-align: right;">31731688</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">0.470</td>
+<td style="text-align: right;">9.9</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>This dataset contains variables such as country, year, status, life expectancy, etc. The <code>Adult.Mortality</code> column represents the adult mortality rates of both genders, which is the probability of dying between 15 and 60 years per 1000 population. <code>Infant.deaths</code> showcases the number of infant deaths per 1000 population. The <code>Alcohol</code> column describes the total litres of consumption for pure alcohol, which is recorded per capita for ages 15 and older. The <code>Hepatitis.B</code>, <code>Polio</code>, and <code>Diphteria</code> variables demonstrate the percentage of immunization coverage among 1-year-olds for each of those diseases. The <code>Measles</code> column signifies the number of reported cases of the measles per 1000 population. thinness..1.19.years` represents the percentage of thinness present in children ranging from the age of 10 to 19 years old.</p>
 <p>Life expectancy ranges from 44 to 89. This means that the people in the country with the highest life expectancy lived almost twice as long as the ones in the country with the lowest life expectancy.</p>
@@ -2223,7 +2329,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Table 2"</span><span class='op'>)</span>
@@ -2233,28 +2339,41 @@ hide
 <pre><code>Table 2</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Life.expectancy</span><span class='op'>&gt;</span><span class='fl'>0</span><span class='op'>)</span><span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Status</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span>
-    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>mean_expectancy<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Life.expectancy</span><span class='op'>)</span><span class='op'>)</span>
+    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>mean_expectancy<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>Life.expectancy</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code># A tibble: 2 x 2
-  Status     mean_expectancy
-  &lt;chr&gt;                &lt;dbl&gt;
-1 Developed             79.2
-2 Developing            67.1</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Status</th>
+<th style="text-align: right;">mean_expectancy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Developed</td>
+<td style="text-align: right;">79.19785</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Developing</td>
+<td style="text-align: right;">67.11147</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>In the table above, we saw that on average, people in developed countries lived almost a decade longer than people in developing countries.</p>
 <p>To better vizualize the correlation between the development status of a country and Life expectancy, we created a boxplot as shown below.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#Plot showing life expectancy in different country status</span>
@@ -2313,7 +2432,7 @@ Figure 2
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>new_data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='co'>#%&gt;% na.omit()</span>
@@ -2339,11 +2458,11 @@ projection <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-67492f8e7242dd53f419" style="width:624px;height:384px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-67492f8e7242dd53f419">{"x":{"visdat":{"287c54003b95":["function () ","plotlyVisDat"]},"cur_data":"287c54003b95","attrs":{"287c54003b95":{"locationmode":"country names","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"locations":{},"z":{},"color":{},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"mapType":"geo","title":"Mean Life Expectancy","geo":{"domain":{"x":[0,1],"y":[0,1]},"showframe":true,"showcoastlines":true,"projection":{"type":"Mercator"}},"scene":{"zaxis":{"title":"mean"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"mean","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666666","rgba(70,19,97,1)"],["0.0833333333333332","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666666","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"locationmode":"country names","locations":["Afghanistan","Albania","Algeria","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia (Plurinational State of)","Bosnia and Herzegovina","Botswana","Brazil","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","CÃ´te d'Ivoire","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica","Croatia","Cuba","Cyprus","Czechia","Democratic People's Republic of Korea","Democratic Republic of the Congo","Denmark","Djibouti","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran (Islamic Republic of)","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libya","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Micronesia (Federated States of)","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Republic of Korea","Republic of Moldova","Romania","Russian Federation","Rwanda","Saint Lucia","Saint Vincent and the Grenadines","Samoa","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syrian Arab Republic","Tajikistan","Thailand","The former Yugoslav republic of Macedonia","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom of Great Britain and Northern Ireland","United Republic of Tanzania","United States of America","Uruguay","Uzbekistan","Vanuatu","Venezuela (Bolivarian Republic of)","Viet Nam","Yemen","Zambia","Zimbabwe"],"z":[58.19375,75.15625,73.61875,49.01875,75.05625,75.15625,73.4,81.8125,81.48125,70.73125,74.2875,75.725,69.3,74.35625,69.90625,80.68125,69.26875,57.56875,66.1625,67.70625,75.96875,56.05,73.38125,76.4875,72.85,55.64375,55.5375,50.3875,72.51875,64.34375,54.01875,81.6875,48.5125,50.3875,79.45,74.2625,73.2875,61.58125,59.04375,78.59375,76.11875,77.975,79.675,76.76875,69.19375,55.6875,79.25625,60.75625,72.34375,74.725,71.5,71.74375,55.3125,60.6875,74.94375,59.1125,68.7125,80.7125,82.21875,62.24375,59.4625,73.50625,81.175,60.8625,81.21875,73.29375,71.73125,56.0125,55.36875,65.6375,59.86875,72.99375,73.825,82.44375,65.41875,67.55625,73.85625,70.35625,80.15,81.3,82.1875,74.29375,82.5375,72.9875,66.7625,57.48125,65.15,73.84375,69.08125,62.38125,73.73125,74.2,48.78125,57.525,72.4875,72.80625,80.78125,62.74375,49.89375,73.75625,75.5375,54.9375,80.3625,62.8,72.7125,75.71875,68.2,65.8875,74.5,72.15625,53.39375,64.2,60.4,66.48125,81.13125,81.3375,73.45,56.98125,51.35625,81.79375,74.84375,64.5,76.4875,61.68125,73.1125,73.6625,67.575,75.65,79.99375,77.03125,80.4875,69.98125,74.05,67.7625,59.3125,73.6,73.475,73.61875,65.1625,73.46875,62.56875,73.95625,72.375,46.1125,81.475,74.75,79.73125,67.7125,53.31875,57.5,53.875,82.06875,73.4,61.825,70.08125,51.325,82.51875,82.33125,70.85,66.65625,73.08125,74.1125,64.75625,56.6625,72.53125,71.06875,74.35625,73.9125,64.61875,55.70625,69.9375,75.7,80.79375,56.00625,78.0625,76.075,68.03125,71.3875,73.3875,74.775,63.8625,53.90625,50.4875],"type":"choropleth","marker":{"line":{"colorbar":{"title":"","ticklen":2},"cmin":46.1125,"cmax":82.5375,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666666","rgba(70,19,97,1)"],["0.0833333333333332","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666666","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[58.19375,75.15625,73.61875,49.01875,75.05625,75.15625,73.4,81.8125,81.48125,70.73125,74.2875,75.725,69.3,74.35625,69.90625,80.68125,69.26875,57.56875,66.1625,67.70625,75.96875,56.05,73.38125,76.4875,72.85,55.64375,55.5375,50.3875,72.51875,64.34375,54.01875,81.6875,48.5125,50.3875,79.45,74.2625,73.2875,61.58125,59.04375,78.59375,76.11875,77.975,79.675,76.76875,69.19375,55.6875,79.25625,60.75625,72.34375,74.725,71.5,71.74375,55.3125,60.6875,74.94375,59.1125,68.7125,80.7125,82.21875,62.24375,59.4625,73.50625,81.175,60.8625,81.21875,73.29375,71.73125,56.0125,55.36875,65.6375,59.86875,72.99375,73.825,82.44375,65.41875,67.55625,73.85625,70.35625,80.15,81.3,82.1875,74.29375,82.5375,72.9875,66.7625,57.48125,65.15,73.84375,69.08125,62.38125,73.73125,74.2,48.78125,57.525,72.4875,72.80625,80.78125,62.74375,49.89375,73.75625,75.5375,54.9375,80.3625,62.8,72.7125,75.71875,68.2,65.8875,74.5,72.15625,53.39375,64.2,60.4,66.48125,81.13125,81.3375,73.45,56.98125,51.35625,81.79375,74.84375,64.5,76.4875,61.68125,73.1125,73.6625,67.575,75.65,79.99375,77.03125,80.4875,69.98125,74.05,67.7625,59.3125,73.6,73.475,73.61875,65.1625,73.46875,62.56875,73.95625,72.375,46.1125,81.475,74.75,79.73125,67.7125,53.31875,57.5,53.875,82.06875,73.4,61.825,70.08125,51.325,82.51875,82.33125,70.85,66.65625,73.08125,74.1125,64.75625,56.6625,72.53125,71.06875,74.35625,73.9125,64.61875,55.70625,69.9375,75.7,80.79375,56.00625,78.0625,76.075,68.03125,71.3875,73.3875,74.775,63.8625,53.90625,50.4875]}},"geo":"geo","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1dfa12b80a227d3ff37d" style="width:624px;height:384px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1dfa12b80a227d3ff37d">{"x":{"visdat":{"1310540320f8":["function () ","plotlyVisDat"]},"cur_data":"1310540320f8","attrs":{"1310540320f8":{"locationmode":"country names","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"locations":{},"z":{},"color":{},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"mapType":"geo","title":"Mean Life Expectancy","geo":{"domain":{"x":[0,1],"y":[0,1]},"showframe":true,"showcoastlines":true,"projection":{"type":"Mercator"}},"scene":{"zaxis":{"title":"mean"}},"hovermode":"closest","showlegend":false,"legend":{"yanchor":"top","y":0.5}},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"colorbar":{"title":"mean","ticklen":2,"len":0.5,"lenmode":"fraction","y":1,"yanchor":"top"},"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666666","rgba(70,19,97,1)"],["0.0833333333333332","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666666","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":true,"locationmode":"country names","locations":["Afghanistan","Albania","Algeria","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia (Plurinational State of)","Bosnia and Herzegovina","Botswana","Brazil","Brunei Darussalam","Bulgaria","Burkina Faso","Burundi","CÃ´te d'Ivoire","Cabo Verde","Cambodia","Cameroon","Canada","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica","Croatia","Cuba","Cyprus","Czechia","Democratic People's Republic of Korea","Democratic Republic of the Congo","Denmark","Djibouti","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran (Islamic Republic of)","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Lao People's Democratic Republic","Latvia","Lebanon","Lesotho","Liberia","Libya","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Micronesia (Federated States of)","Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Republic of Korea","Republic of Moldova","Romania","Russian Federation","Rwanda","Saint Lucia","Saint Vincent and the Grenadines","Samoa","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syrian Arab Republic","Tajikistan","Thailand","The former Yugoslav republic of Macedonia","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Uganda","Ukraine","United Arab Emirates","United Kingdom of Great Britain and Northern Ireland","United Republic of Tanzania","United States of America","Uruguay","Uzbekistan","Vanuatu","Venezuela (Bolivarian Republic of)","Viet Nam","Yemen","Zambia","Zimbabwe"],"z":[58.19375,75.15625,73.61875,49.01875,75.05625,75.15625,73.4,81.8125,81.48125,70.73125,74.2875,75.725,69.3,74.35625,69.90625,80.68125,69.26875,57.56875,66.1625,67.70625,75.96875,56.05,73.38125,76.4875,72.85,55.64375,55.5375,50.3875,72.51875,64.34375,54.01875,81.6875,48.5125,50.3875,79.45,74.2625,73.2875,61.58125,59.04375,78.59375,76.11875,77.975,79.675,76.76875,69.19375,55.6875,79.25625,60.75625,72.34375,74.725,71.5,71.74375,55.3125,60.6875,74.94375,59.1125,68.7125,80.7125,82.21875,62.24375,59.4625,73.50625,81.175,60.8625,81.21875,73.29375,71.73125,56.0125,55.36875,65.6375,59.86875,72.99375,73.825,82.44375,65.41875,67.55625,73.85625,70.35625,80.15,81.3,82.1875,74.29375,82.5375,72.9875,66.7625,57.48125,65.15,73.84375,69.08125,62.38125,73.73125,74.2,48.78125,57.525,72.4875,72.80625,80.78125,62.74375,49.89375,73.75625,75.5375,54.9375,80.3625,62.8,72.7125,75.71875,68.2,65.8875,74.5,72.15625,53.39375,64.2,60.4,66.48125,81.13125,81.3375,73.45,56.98125,51.35625,81.79375,74.84375,64.5,76.4875,61.68125,73.1125,73.6625,67.575,75.65,79.99375,77.03125,80.4875,69.98125,74.05,67.7625,59.3125,73.6,73.475,73.61875,65.1625,73.46875,62.56875,73.95625,72.375,46.1125,81.475,74.75,79.73125,67.7125,53.31875,57.5,53.875,82.06875,73.4,61.825,70.08125,51.325,82.51875,82.33125,70.85,66.65625,73.08125,74.1125,64.75625,56.6625,72.53125,71.06875,74.35625,73.9125,64.61875,55.70625,69.9375,75.7,80.79375,56.00625,78.0625,76.075,68.03125,71.3875,73.3875,74.775,63.8625,53.90625,50.4875],"type":"choropleth","marker":{"line":{"colorbar":{"title":"","ticklen":2},"cmin":46.1125,"cmax":82.5375,"colorscale":[["0","rgba(68,1,84,1)"],["0.0416666666666666","rgba(70,19,97,1)"],["0.0833333333333332","rgba(72,32,111,1)"],["0.125","rgba(71,45,122,1)"],["0.166666666666667","rgba(68,58,128,1)"],["0.208333333333333","rgba(64,70,135,1)"],["0.25","rgba(60,82,138,1)"],["0.291666666666667","rgba(56,93,140,1)"],["0.333333333333333","rgba(49,104,142,1)"],["0.375","rgba(46,114,142,1)"],["0.416666666666667","rgba(42,123,142,1)"],["0.458333333333333","rgba(38,133,141,1)"],["0.5","rgba(37,144,140,1)"],["0.541666666666666","rgba(33,154,138,1)"],["0.583333333333333","rgba(39,164,133,1)"],["0.625","rgba(47,174,127,1)"],["0.666666666666667","rgba(53,183,121,1)"],["0.708333333333333","rgba(79,191,110,1)"],["0.75","rgba(98,199,98,1)"],["0.791666666666667","rgba(119,207,85,1)"],["0.833333333333333","rgba(147,214,70,1)"],["0.875","rgba(172,220,52,1)"],["0.916666666666667","rgba(199,225,42,1)"],["0.958333333333333","rgba(226,228,40,1)"],["1","rgba(253,231,37,1)"]],"showscale":false,"color":[58.19375,75.15625,73.61875,49.01875,75.05625,75.15625,73.4,81.8125,81.48125,70.73125,74.2875,75.725,69.3,74.35625,69.90625,80.68125,69.26875,57.56875,66.1625,67.70625,75.96875,56.05,73.38125,76.4875,72.85,55.64375,55.5375,50.3875,72.51875,64.34375,54.01875,81.6875,48.5125,50.3875,79.45,74.2625,73.2875,61.58125,59.04375,78.59375,76.11875,77.975,79.675,76.76875,69.19375,55.6875,79.25625,60.75625,72.34375,74.725,71.5,71.74375,55.3125,60.6875,74.94375,59.1125,68.7125,80.7125,82.21875,62.24375,59.4625,73.50625,81.175,60.8625,81.21875,73.29375,71.73125,56.0125,55.36875,65.6375,59.86875,72.99375,73.825,82.44375,65.41875,67.55625,73.85625,70.35625,80.15,81.3,82.1875,74.29375,82.5375,72.9875,66.7625,57.48125,65.15,73.84375,69.08125,62.38125,73.73125,74.2,48.78125,57.525,72.4875,72.80625,80.78125,62.74375,49.89375,73.75625,75.5375,54.9375,80.3625,62.8,72.7125,75.71875,68.2,65.8875,74.5,72.15625,53.39375,64.2,60.4,66.48125,81.13125,81.3375,73.45,56.98125,51.35625,81.79375,74.84375,64.5,76.4875,61.68125,73.1125,73.6625,67.575,75.65,79.99375,77.03125,80.4875,69.98125,74.05,67.7625,59.3125,73.6,73.475,73.61875,65.1625,73.46875,62.56875,73.95625,72.375,46.1125,81.475,74.75,79.73125,67.7125,53.31875,57.5,53.875,82.06875,73.4,61.825,70.08125,51.325,82.51875,82.33125,70.85,66.65625,73.08125,74.1125,64.75625,56.6625,72.53125,71.06875,74.35625,73.9125,64.61875,55.70625,69.9375,75.7,80.79375,56.00625,78.0625,76.075,68.03125,71.3875,73.3875,74.775,63.8625,53.90625,50.4875]}},"geo":"geo","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#htmlwidgets::saveWidget(plot, "plot2.html")</span>
@@ -2359,7 +2478,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p</span><span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> 
@@ -2379,7 +2498,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p2</span><span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> 
@@ -2405,7 +2524,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>p3</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> 
@@ -2433,7 +2552,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>correl</span><span class='op'>&lt;-</span> <span class='fu'>corrr</span><span class='fu'>::</span><span class='fu'><a href='https://corrr.tidymodels.org/reference/correlate.html'>correlate</a></span><span class='op'>(</span><span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select_all.html'>select_if</a></span><span class='op'>(</span><span class='va'>is.numeric</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://corrr.tidymodels.org/reference/network_plot.html'>network_plot</a></span><span class='op'>(</span><span class='op'>)</span>
@@ -2447,7 +2566,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data_num</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>Country</span>, <span class='op'>-</span><span class='va'>Year</span>, <span class='op'>-</span><span class='va'>Status</span><span class='op'>)</span>
@@ -2479,7 +2598,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> 
@@ -2502,31 +2621,114 @@ hide
 <pre><code>Table 3</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>expectancy_train</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>expectancy_train</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>    Status Life.expectancy Adult.Mortality infant.deaths Alcohol
-676      1            81.0              54             0    9.04
-799      0            74.4             151             8    3.69
-    percentage.expenditure Hepatitis.B Measles  BMI under.five.deaths
-676              212.08593          96       0 59.2                 0
-799               18.26183          82       0 45.8                10
-    Polio Total.expenditure Diphtheria HIV.AIDS      GDP Population
-676    99              7.46         99      0.1 2797.967    1143896
-799    97              6.46         87      0.3  244.469    1328961
-    thinness..1.19.years thinness.5.9.years
-676                  0.9                1.0
-799                  1.5                1.4
-    Income.composition.of.resources Schooling
-676                           0.850      13.8
-799                           0.679      12.6</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 1%" />
+<col style="width: 2%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 2%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 2%" />
+<col style="width: 1%" />
+<col style="width: 6%" />
+<col style="width: 2%" />
+<col style="width: 6%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: right;">Life.expectancy</th>
+<th style="text-align: right;">Adult.Mortality</th>
+<th style="text-align: right;">infant.deaths</th>
+<th style="text-align: right;">Alcohol</th>
+<th style="text-align: right;">percentage.expenditure</th>
+<th style="text-align: right;">Hepatitis.B</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">BMI</th>
+<th style="text-align: right;">under.five.deaths</th>
+<th style="text-align: right;">Polio</th>
+<th style="text-align: right;">Total.expenditure</th>
+<th style="text-align: right;">Diphtheria</th>
+<th style="text-align: right;">HIV.AIDS</th>
+<th style="text-align: right;">GDP</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">thinness..1.19.years</th>
+<th style="text-align: right;">thinness.5.9.years</th>
+<th style="text-align: right;">Income.composition.of.resources</th>
+<th style="text-align: right;">Schooling</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">676</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">81.0</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.04</td>
+<td style="text-align: right;">212.08593</td>
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">59.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">7.46</td>
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">2797.967</td>
+<td style="text-align: right;">1143896</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.850</td>
+<td style="text-align: right;">13.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">799</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">74.4</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">3.69</td>
+<td style="text-align: right;">18.26183</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">45.8</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">6.46</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">244.469</td>
+<td style="text-align: right;">1328961</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.679</td>
+<td style="text-align: right;">12.6</td>
+</tr>
+</tbody>
+</table>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"Table 4"</span><span class='op'>)</span>
@@ -2536,28 +2738,111 @@ hide
 <pre><code>Table 4</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>expectancy_test</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>expectancy_test</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>  Status Life.expectancy Adult.Mortality infant.deaths Alcohol
-3      0            59.9             268            66    0.01
-7      0            58.6             281            77    0.01
-  percentage.expenditure Hepatitis.B Measles  BMI under.five.deaths
-3               73.21924          64     430 18.1                89
-7               56.76222          63    2861 16.2               106
-  Polio Total.expenditure Diphtheria HIV.AIDS      GDP Population
-3    62              8.13         64      0.1 631.7450   31731688
-7    63              9.42         63      0.1 445.8933     284331
-  thinness..1.19.years thinness.5.9.years
-3                 17.7               17.7
-7                 18.6               18.7
-  Income.composition.of.resources Schooling
-3                           0.470       9.9
-7                           0.434       8.9</code></pre>
+<table>
+<colgroup>
+<col style="width: 1%" />
+<col style="width: 2%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 2%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 2%" />
+<col style="width: 1%" />
+<col style="width: 6%" />
+<col style="width: 2%" />
+<col style="width: 6%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: left;">Status</th>
+<th style="text-align: right;">Life.expectancy</th>
+<th style="text-align: right;">Adult.Mortality</th>
+<th style="text-align: right;">infant.deaths</th>
+<th style="text-align: right;">Alcohol</th>
+<th style="text-align: right;">percentage.expenditure</th>
+<th style="text-align: right;">Hepatitis.B</th>
+<th style="text-align: right;">Measles</th>
+<th style="text-align: right;">BMI</th>
+<th style="text-align: right;">under.five.deaths</th>
+<th style="text-align: right;">Polio</th>
+<th style="text-align: right;">Total.expenditure</th>
+<th style="text-align: right;">Diphtheria</th>
+<th style="text-align: right;">HIV.AIDS</th>
+<th style="text-align: right;">GDP</th>
+<th style="text-align: right;">Population</th>
+<th style="text-align: right;">thinness..1.19.years</th>
+<th style="text-align: right;">thinness.5.9.years</th>
+<th style="text-align: right;">Income.composition.of.resources</th>
+<th style="text-align: right;">Schooling</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">59.9</td>
+<td style="text-align: right;">268</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">73.21924</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">8.13</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">631.7450</td>
+<td style="text-align: right;">31731688</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">0.470</td>
+<td style="text-align: right;">9.9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: right;">58.6</td>
+<td style="text-align: right;">281</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">56.76222</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">2861</td>
+<td style="text-align: right;">16.2</td>
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">9.42</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">445.8933</td>
+<td style="text-align: right;">284331</td>
+<td style="text-align: right;">18.6</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">0.434</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h2 id="backward-selection">Backward Selection</h2>
 <p>We will now be performing variable selection using regsubsets. Our nvmax is 19 as there are 19 remaining variables in the dataset.</p>
@@ -2565,7 +2850,7 @@ Table 5
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#Variable selection </span>
@@ -2581,22 +2866,63 @@ hide
    ADJ.R2 <span class='op'>=</span> <span class='va'>back_summary</span><span class='op'>$</span><span class='va'>adjr2</span>,
    BIC <span class='op'>=</span> <span class='va'>back_summary</span><span class='op'>$</span><span class='va'>bic</span>
 <span class='op'>)</span>
-<span class='va'>back_summary_df</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>back_summary_df</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>        RSQ      RSS    ADJ.R2        BIC
-1 0.5177821 46475.58 0.5173913  -887.2486
-2 0.7279422 26220.60 0.7275009 -1587.5926
-3 0.7898490 20254.10 0.7893372 -1899.5934
-4 0.8105975 18254.38 0.8099821 -2020.9589
-5 0.8145800 17870.55 0.8138263 -2040.1052
-6 0.8249509 16871.02 0.8240963 -2104.1260</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">RSQ</th>
+<th style="text-align: right;">RSS</th>
+<th style="text-align: right;">ADJ.R2</th>
+<th style="text-align: right;">BIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.5177821</td>
+<td style="text-align: right;">46475.58</td>
+<td style="text-align: right;">0.5173913</td>
+<td style="text-align: right;">-887.2486</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.7279422</td>
+<td style="text-align: right;">26220.60</td>
+<td style="text-align: right;">0.7275009</td>
+<td style="text-align: right;">-1587.5926</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.7898490</td>
+<td style="text-align: right;">20254.10</td>
+<td style="text-align: right;">0.7893372</td>
+<td style="text-align: right;">-1899.5934</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.8105975</td>
+<td style="text-align: right;">18254.38</td>
+<td style="text-align: right;">0.8099821</td>
+<td style="text-align: right;">-2020.9589</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.8145800</td>
+<td style="text-align: right;">17870.55</td>
+<td style="text-align: right;">0.8138263</td>
+<td style="text-align: right;">-2040.1052</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.8249509</td>
+<td style="text-align: right;">16871.02</td>
+<td style="text-align: right;">0.8240963</td>
+<td style="text-align: right;">-2104.1260</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Using Mallow's C_P to find the right number of inputs</span>
@@ -2611,7 +2937,7 @@ hide
 <pre><code>The best number of predictors to be selected is  12</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='st'>"\nTable 6"</span><span class='op'>)</span>
@@ -2622,40 +2948,104 @@ hide
 Table 6</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>backward_sel_candidate_models</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>backward_sel_candidate_models</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code># A tibble: 19 x 2
-   n_input_variables     C_p
-               &lt;int&gt;   &lt;dbl&gt;
- 1                 1 2404.  
- 2                 2  821.  
- 3                 3  357.  
- 4                 4  202.  
- 5                 5  174.  
- 6                 6   97.9 
- 7                 7   51.0 
- 8                 8   19.9 
- 9                 9   13.5 
-10                10   12.0 
-11                11   11.5 
-12                12    9.99
-13                13   10.1 
-14                14   11.1 
-15                15   12.7 
-16                16   14.3 
-17                17   16.1 
-18                18   18.0 
-19                19   20   </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">n_input_variables</th>
+<th style="text-align: right;">C_p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2404.139354</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">821.437844</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">356.633125</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">202.179470</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">174.149690</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">97.948598</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">50.986642</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">19.934640</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">13.454595</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">11.985773</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">11.468809</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">9.988715</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">10.121462</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">11.148805</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">12.691486</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">14.287013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">16.079369</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">18.017771</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">20.000000</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>back_summary</span><span class='op'>$</span><span class='va'>cp</span>,
@@ -2671,114 +3061,489 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>back_summary</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>back_summary</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>$which
-   (Intercept) Status1 Adult.Mortality infant.deaths Alcohol
-1         TRUE   FALSE           FALSE         FALSE   FALSE
-2         TRUE   FALSE           FALSE         FALSE   FALSE
-3         TRUE   FALSE            TRUE         FALSE   FALSE
-4         TRUE   FALSE            TRUE         FALSE   FALSE
-5         TRUE   FALSE            TRUE         FALSE   FALSE
-6         TRUE   FALSE            TRUE          TRUE   FALSE
-7         TRUE   FALSE            TRUE          TRUE   FALSE
-8         TRUE   FALSE            TRUE          TRUE   FALSE
-9         TRUE   FALSE            TRUE          TRUE   FALSE
-10        TRUE   FALSE            TRUE          TRUE   FALSE
-11        TRUE   FALSE            TRUE          TRUE    TRUE
-12        TRUE    TRUE            TRUE          TRUE    TRUE
-13        TRUE    TRUE            TRUE          TRUE    TRUE
-14        TRUE    TRUE            TRUE          TRUE    TRUE
-15        TRUE    TRUE            TRUE          TRUE    TRUE
-16        TRUE    TRUE            TRUE          TRUE    TRUE
-17        TRUE    TRUE            TRUE          TRUE    TRUE
-18        TRUE    TRUE            TRUE          TRUE    TRUE
-19        TRUE    TRUE            TRUE          TRUE    TRUE
-   percentage.expenditure Hepatitis.B Measles   BMI under.five.deaths
-1                   FALSE       FALSE   FALSE FALSE             FALSE
-2                   FALSE       FALSE   FALSE FALSE             FALSE
-3                   FALSE       FALSE   FALSE FALSE             FALSE
-4                   FALSE       FALSE   FALSE FALSE             FALSE
-5                   FALSE       FALSE   FALSE FALSE              TRUE
-6                   FALSE       FALSE   FALSE FALSE              TRUE
-7                    TRUE       FALSE   FALSE FALSE              TRUE
-8                    TRUE       FALSE   FALSE  TRUE              TRUE
-9                    TRUE       FALSE   FALSE  TRUE              TRUE
-10                   TRUE       FALSE   FALSE  TRUE              TRUE
-11                   TRUE       FALSE   FALSE  TRUE              TRUE
-12                   TRUE       FALSE   FALSE  TRUE              TRUE
-13                   TRUE       FALSE   FALSE  TRUE              TRUE
-14                   TRUE       FALSE   FALSE  TRUE              TRUE
-15                   TRUE       FALSE    TRUE  TRUE              TRUE
-16                   TRUE        TRUE    TRUE  TRUE              TRUE
-17                   TRUE        TRUE    TRUE  TRUE              TRUE
-18                   TRUE        TRUE    TRUE  TRUE              TRUE
-19                   TRUE        TRUE    TRUE  TRUE              TRUE
-   Polio Total.expenditure Diphtheria HIV.AIDS   GDP Population
-1  FALSE             FALSE      FALSE    FALSE FALSE      FALSE
-2  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-3  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-4  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-5  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-6  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-7  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-8  FALSE             FALSE      FALSE     TRUE FALSE      FALSE
-9   TRUE             FALSE      FALSE     TRUE FALSE      FALSE
-10  TRUE             FALSE      FALSE     TRUE FALSE      FALSE
-11  TRUE             FALSE      FALSE     TRUE FALSE      FALSE
-12  TRUE             FALSE      FALSE     TRUE FALSE      FALSE
-13  TRUE              TRUE      FALSE     TRUE FALSE      FALSE
-14  TRUE              TRUE       TRUE     TRUE FALSE      FALSE
-15  TRUE              TRUE       TRUE     TRUE FALSE      FALSE
-16  TRUE              TRUE       TRUE     TRUE FALSE      FALSE
-17  TRUE              TRUE       TRUE     TRUE  TRUE      FALSE
-18  TRUE              TRUE       TRUE     TRUE  TRUE       TRUE
-19  TRUE              TRUE       TRUE     TRUE  TRUE       TRUE
-   thinness..1.19.years thinness.5.9.years
-1                 FALSE              FALSE
-2                 FALSE              FALSE
-3                 FALSE              FALSE
-4                 FALSE              FALSE
-5                 FALSE              FALSE
-6                 FALSE              FALSE
-7                 FALSE              FALSE
-8                 FALSE              FALSE
-9                 FALSE              FALSE
-10                FALSE               TRUE
-11                FALSE               TRUE
-12                FALSE               TRUE
-13                FALSE               TRUE
-14                FALSE               TRUE
-15                FALSE               TRUE
-16                FALSE               TRUE
-17                FALSE               TRUE
-18                FALSE               TRUE
-19                 TRUE               TRUE
-   Income.composition.of.resources Schooling
-1                            FALSE      TRUE
-2                            FALSE      TRUE
-3                            FALSE      TRUE
-4                             TRUE      TRUE
-5                             TRUE      TRUE
-6                             TRUE      TRUE
-7                             TRUE      TRUE
-8                             TRUE      TRUE
-9                             TRUE      TRUE
-10                            TRUE      TRUE
-11                            TRUE      TRUE
-12                            TRUE      TRUE
-13                            TRUE      TRUE
-14                            TRUE      TRUE
-15                            TRUE      TRUE
-16                            TRUE      TRUE
-17                            TRUE      TRUE
-18                            TRUE      TRUE
-19                            TRUE      TRUE</code></pre>
+<table class="kable_wrapper">
+<tbody>
+<tr>
+<td>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 2%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 2%" />
+<col style="width: 8%" />
+<col style="width: 4%" />
+<col style="width: 2%" />
+<col style="width: 2%" />
+<col style="width: 6%" />
+<col style="width: 2%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 2%" />
+<col style="width: 4%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">(Intercept)</th>
+<th style="text-align: left;">Status1</th>
+<th style="text-align: left;">Adult.Mortality</th>
+<th style="text-align: left;">infant.deaths</th>
+<th style="text-align: left;">Alcohol</th>
+<th style="text-align: left;">percentage.expenditure</th>
+<th style="text-align: left;">Hepatitis.B</th>
+<th style="text-align: left;">Measles</th>
+<th style="text-align: left;">BMI</th>
+<th style="text-align: left;">under.five.deaths</th>
+<th style="text-align: left;">Polio</th>
+<th style="text-align: left;">Total.expenditure</th>
+<th style="text-align: left;">Diphtheria</th>
+<th style="text-align: left;">HIV.AIDS</th>
+<th style="text-align: left;">GDP</th>
+<th style="text-align: left;">Population</th>
+<th style="text-align: left;">thinness..1.19.years</th>
+<th style="text-align: left;">thinness.5.9.years</th>
+<th style="text-align: left;">Income.composition.of.resources</th>
+<th style="text-align: left;">Schooling</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>The 12 variables include: <code>Status</code>, <code>Adult.Mortality</code>, <code>infant.deaths</code>, <code>percentage.expenditure</code>, <code>BMI</code>, <code>under.five.deaths</code>, <code>Diphtheria</code>, <code>HIV.AIDS</code>, <code>thinness.5.9.years</code>, <code>Income.composition.of.resources</code>, <code>Schooling</code> and <code>Alcohol</code>.</p>
 <h4 id="observations-1">Observations</h4>
@@ -2793,7 +3558,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>### Forward selection</span>
@@ -2808,23 +3573,64 @@ hide
    ADJ.R2 <span class='op'>=</span> <span class='va'>forward_summary</span><span class='op'>$</span><span class='va'>adjr2</span>,
    BIC <span class='op'>=</span> <span class='va'>forward_summary</span><span class='op'>$</span><span class='va'>bic</span>
 <span class='op'>)</span>
-<span class='va'>forward_summary_df</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>forward_summary_df</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>        RSQ      RSS    ADJ.R2        BIC
-1 0.5177821 46475.58 0.5173913  -887.2486
-2 0.7279422 26220.60 0.7275009 -1587.5926
-3 0.7898490 20254.10 0.7893372 -1899.5934
-4 0.8105975 18254.38 0.8099821 -2020.9589
-5 0.8161367 17720.52 0.8153893 -2050.5256
-6 0.8216015 17193.83 0.8207306 -2080.6997</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">RSQ</th>
+<th style="text-align: right;">RSS</th>
+<th style="text-align: right;">ADJ.R2</th>
+<th style="text-align: right;">BIC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.5177821</td>
+<td style="text-align: right;">46475.58</td>
+<td style="text-align: right;">0.5173913</td>
+<td style="text-align: right;">-887.2486</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.7279422</td>
+<td style="text-align: right;">26220.60</td>
+<td style="text-align: right;">0.7275009</td>
+<td style="text-align: right;">-1587.5926</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.7898490</td>
+<td style="text-align: right;">20254.10</td>
+<td style="text-align: right;">0.7893372</td>
+<td style="text-align: right;">-1899.5934</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.8105975</td>
+<td style="text-align: right;">18254.38</td>
+<td style="text-align: right;">0.8099821</td>
+<td style="text-align: right;">-2020.9589</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.8161367</td>
+<td style="text-align: right;">17720.52</td>
+<td style="text-align: right;">0.8153893</td>
+<td style="text-align: right;">-2050.5256</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.8216015</td>
+<td style="text-align: right;">17193.83</td>
+<td style="text-align: right;">0.8207306</td>
+<td style="text-align: right;">-2080.6997</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>Table 8</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'>## Using Mallow's C_P to find the right number of inputs</span>
@@ -2839,40 +3645,104 @@ hide
 <pre><code>The best number of predictors to be selected is  12</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>forward_sel_candidate_models</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>forward_sel_candidate_models</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code># A tibble: 19 x 2
-   n_input_variables     C_p
-               &lt;int&gt;   &lt;dbl&gt;
- 1                 1 2404.  
- 2                 2  821.  
- 3                 3  357.  
- 4                 4  202.  
- 5                 5  162.  
- 6                 6  123.  
- 7                 7  106.  
- 8                 8   19.9 
- 9                 9   13.5 
-10                10   12.0 
-11                11   11.5 
-12                12    9.99
-13                13   10.1 
-14                14   11.1 
-15                15   12.7 
-16                16   14.3 
-17                17   16.1 
-18                18   18.0 
-19                19   20   </code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">n_input_variables</th>
+<th style="text-align: right;">C_p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2404.139354</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">821.437844</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">356.633125</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">202.179470</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">162.411842</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">123.204489</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">106.087435</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">19.934640</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">13.454595</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">11.985773</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">11.468809</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">9.988715</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">10.121462</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">11.148805</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">12.691486</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">14.287013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">16.079369</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">18.017771</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">20.000000</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>forward_summary</span><span class='op'>$</span><span class='va'>cp</span>,
@@ -2888,88 +3758,353 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>stepwise_selection</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span>
     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span> <span class='op'>-</span><span class='va'>Hepatitis.B</span>, <span class='op'>-</span><span class='va'>Measles</span>, <span class='op'>-</span><span class='va'>Polio</span>, <span class='op'>-</span><span class='va'>Total.expenditure</span>, <span class='op'>-</span><span class='va'>GDP</span>, 
            <span class='op'>-</span><span class='va'>Population</span>, <span class='op'>-</span><span class='va'>thinness..1.19.years</span>, <span class='op'>-</span><span class='va'>Schooling</span>, <span class='op'>-</span><span class='va'>infant.deaths</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span>
     <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='op'>)</span> 
-<span class='va'>stepwise_selection</span>
+<span class='va'>stepwise_selection</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code> [1] &quot;Status&quot;                         
- [2] &quot;Life.expectancy&quot;                
- [3] &quot;Adult.Mortality&quot;                
- [4] &quot;Alcohol&quot;                        
- [5] &quot;percentage.expenditure&quot;         
- [6] &quot;BMI&quot;                            
- [7] &quot;under.five.deaths&quot;              
- [8] &quot;Diphtheria&quot;                     
- [9] &quot;HIV.AIDS&quot;                       
-[10] &quot;thinness.5.9.years&quot;             
-[11] &quot;Income.composition.of.resources&quot;</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Status</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Life.expectancy</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adult.Mortality</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alcohol</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">percentage.expenditure</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">BMI</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">under.five.deaths</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Diphtheria</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HIV.AIDS</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">thinness.5.9.years</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Income.composition.of.resources</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>Below, we can find our model, and the summary of our model.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>MLR_expectancy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Life.expectancy</span> <span class='op'>~</span> <span class='va'>Status</span> <span class='op'>+</span> <span class='va'>Adult.Mortality</span> <span class='op'>+</span> <span class='va'>percentage.expenditure</span>
                      <span class='op'>+</span> <span class='va'>BMI</span> <span class='op'>+</span> <span class='va'>under.five.deaths</span> <span class='op'>+</span> <span class='va'>Diphtheria</span> <span class='op'>+</span> <span class='va'>Alcohol</span> <span class='op'>+</span> 
                      <span class='va'>HIV.AIDS</span> <span class='op'>+</span> <span class='va'>thinness.5.9.years</span> <span class='op'>+</span> <span class='va'>Income.composition.of.resources</span>, data <span class='op'>=</span> <span class='va'>expectancy_train</span><span class='op'>)</span>
-<span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>MLR_expectancy</span>, conf.int <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>MLR_expectancy</span>, conf.int <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code># A tibble: 11 x 7
-   term       estimate std.error statistic  p.value conf.low conf.high
-   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
- 1 (Intercep~  5.85e+1 0.755        77.5   0         5.70e+1 60.0     
- 2 Status1     1.24e+0 0.430         2.89  3.94e- 3  3.98e-1  2.08    
- 3 Adult.Mor~ -2.06e-2 0.00118     -17.5   1.29e-61 -2.29e-2 -0.0183  
- 4 percentag~  4.88e-4 0.0000771     6.33  3.38e-10  3.37e-4  0.000640
- 5 BMI         5.70e-2 0.00748       7.62  4.95e-14  4.23e-2  0.0717  
- 6 under.fiv~ -2.71e-3 0.000729     -3.72  2.11e- 4 -4.14e-3 -0.00128 
- 7 Diphtheria  2.74e-2 0.00550       4.99  6.93e- 7  1.66e-2  0.0382  
- 8 Alcohol    -1.19e-2 0.0396       -0.301 7.63e- 1 -8.96e-2  0.0657  
- 9 HIV.AIDS   -4.12e-1 0.0211      -19.5   5.87e-74 -4.54e-1 -0.371   
-10 thinness.~ -3.40e-2 0.0330       -1.03  3.03e- 1 -9.89e-2  0.0308  
-11 Income.co~  1.66e+1 0.890        18.6   1.76e-68  1.48e+1 18.3     </code></pre>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">58.5126455</td>
+<td style="text-align: right;">0.7554403</td>
+<td style="text-align: right;">77.4550272</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">57.0305454</td>
+<td style="text-align: right;">59.9947456</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status1</td>
+<td style="text-align: right;">1.2412777</td>
+<td style="text-align: right;">0.4297390</td>
+<td style="text-align: right;">2.8884455</td>
+<td style="text-align: right;">0.0039396</td>
+<td style="text-align: right;">0.3981717</td>
+<td style="text-align: right;">2.0843837</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adult.Mortality</td>
+<td style="text-align: right;">-0.0206131</td>
+<td style="text-align: right;">0.0011753</td>
+<td style="text-align: right;">-17.5392368</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-0.0229188</td>
+<td style="text-align: right;">-0.0183073</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">percentage.expenditure</td>
+<td style="text-align: right;">0.0004885</td>
+<td style="text-align: right;">0.0000771</td>
+<td style="text-align: right;">6.3324696</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0003371</td>
+<td style="text-align: right;">0.0006398</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BMI</td>
+<td style="text-align: right;">0.0570020</td>
+<td style="text-align: right;">0.0074777</td>
+<td style="text-align: right;">7.6229339</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0423315</td>
+<td style="text-align: right;">0.0716725</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">under.five.deaths</td>
+<td style="text-align: right;">-0.0027101</td>
+<td style="text-align: right;">0.0007291</td>
+<td style="text-align: right;">-3.7169385</td>
+<td style="text-align: right;">0.0002108</td>
+<td style="text-align: right;">-0.0041405</td>
+<td style="text-align: right;">-0.0012796</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Diphtheria</td>
+<td style="text-align: right;">0.0274355</td>
+<td style="text-align: right;">0.0054988</td>
+<td style="text-align: right;">4.9893188</td>
+<td style="text-align: right;">0.0000007</td>
+<td style="text-align: right;">0.0166473</td>
+<td style="text-align: right;">0.0382236</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alcohol</td>
+<td style="text-align: right;">-0.0119317</td>
+<td style="text-align: right;">0.0395812</td>
+<td style="text-align: right;">-0.3014486</td>
+<td style="text-align: right;">0.7631236</td>
+<td style="text-align: right;">-0.0895861</td>
+<td style="text-align: right;">0.0657227</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HIV.AIDS</td>
+<td style="text-align: right;">-0.4122371</td>
+<td style="text-align: right;">0.0211421</td>
+<td style="text-align: right;">-19.4983807</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-0.4537159</td>
+<td style="text-align: right;">-0.3707584</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">thinness.5.9.years</td>
+<td style="text-align: right;">-0.0340371</td>
+<td style="text-align: right;">0.0330401</td>
+<td style="text-align: right;">-1.0301765</td>
+<td style="text-align: right;">0.3031305</td>
+<td style="text-align: right;">-0.0988585</td>
+<td style="text-align: right;">0.0307843</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Income.composition.of.resources</td>
+<td style="text-align: right;">16.5937484</td>
+<td style="text-align: right;">0.8900820</td>
+<td style="text-align: right;">18.6429444</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">14.8474945</td>
+<td style="text-align: right;">18.3400023</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>MLR_expectancy_2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Life.expectancy</span> <span class='op'>~</span> <span class='va'>Status</span> <span class='op'>+</span> <span class='va'>Adult.Mortality</span> <span class='op'>+</span> <span class='va'>percentage.expenditure</span>
                     <span class='op'>+</span> <span class='va'>BMI</span> <span class='op'>+</span> <span class='va'>under.five.deaths</span> <span class='op'>+</span> <span class='va'>Diphtheria</span> <span class='op'>+</span> <span class='va'>Alcohol</span> <span class='op'>+</span> 
                     <span class='va'>HIV.AIDS</span> <span class='op'>+</span> <span class='va'>thinness.5.9.years</span> <span class='op'>+</span> <span class='va'>Income.composition.of.resources</span> <span class='op'>+</span> 
                       <span class='va'>infant.deaths</span> <span class='op'>+</span> <span class='va'>Schooling</span>, data <span class='op'>=</span> <span class='va'>expectancy_train</span><span class='op'>)</span>
-<span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>MLR_expectancy_2</span>, conf.int<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>MLR_expectancy_2</span>, conf.int<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code># A tibble: 13 x 7
-   term       estimate std.error statistic  p.value conf.low conf.high
-   &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
- 1 (Intercep~  5.47e+1 0.791         69.1  0         5.31e+1 56.2     
- 2 Status1     7.34e-1 0.392          1.87 6.11e- 2 -3.42e-2  1.50    
- 3 Adult.Mor~ -1.77e-2 0.00108      -16.4  6.98e-55 -1.99e-2 -0.0156  
- 4 percentag~  4.51e-4 0.0000701      6.43 1.81e-10  3.13e-4  0.000588
- 5 BMI         3.40e-2 0.00696        4.88 1.21e- 6  2.03e-2  0.0476  
- 6 under.fiv~ -7.49e-2 0.00841       -8.92 1.73e-18 -9.14e-2 -0.0584  
- 7 Diphtheria  1.28e-2 0.00508        2.52 1.18e- 2  2.84e-3  0.0228  
- 8 Alcohol    -8.15e-2 0.0376        -2.17 3.03e- 2 -1.55e-1 -0.00777 
- 9 HIV.AIDS   -4.15e-1 0.0192       -21.6  3.17e-88 -4.53e-1 -0.378   
-10 thinness.~ -6.26e-2 0.0301        -2.08 3.80e- 2 -1.22e-1 -0.00348 
-11 Income.co~  9.28e+0 0.943          9.84 4.91e-22  7.43e+0 11.1     
-12 infant.de~  9.87e-2 0.0113         8.72 8.64e-18  7.65e-2  0.121   
-13 Schooling   8.77e-1 0.0667        13.1  5.39e-37  7.46e-1  1.01    </code></pre>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">conf.low</th>
+<th style="text-align: right;">conf.high</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">54.6706112</td>
+<td style="text-align: right;">0.7911543</td>
+<td style="text-align: right;">69.102340</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">53.1184413</td>
+<td style="text-align: right;">56.2227812</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Status1</td>
+<td style="text-align: right;">0.7342522</td>
+<td style="text-align: right;">0.3916697</td>
+<td style="text-align: right;">1.874672</td>
+<td style="text-align: right;">0.0610761</td>
+<td style="text-align: right;">-0.0341668</td>
+<td style="text-align: right;">1.5026712</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adult.Mortality</td>
+<td style="text-align: right;">-0.0177494</td>
+<td style="text-align: right;">0.0010812</td>
+<td style="text-align: right;">-16.415941</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-0.0198707</td>
+<td style="text-align: right;">-0.0156281</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">percentage.expenditure</td>
+<td style="text-align: right;">0.0004508</td>
+<td style="text-align: right;">0.0000701</td>
+<td style="text-align: right;">6.431575</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0003133</td>
+<td style="text-align: right;">0.0005883</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">BMI</td>
+<td style="text-align: right;">0.0339693</td>
+<td style="text-align: right;">0.0069625</td>
+<td style="text-align: right;">4.878866</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: right;">0.0203095</td>
+<td style="text-align: right;">0.0476292</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">under.five.deaths</td>
+<td style="text-align: right;">-0.0749374</td>
+<td style="text-align: right;">0.0084056</td>
+<td style="text-align: right;">-8.915167</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-0.0914284</td>
+<td style="text-align: right;">-0.0584464</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Diphtheria</td>
+<td style="text-align: right;">0.0128051</td>
+<td style="text-align: right;">0.0050786</td>
+<td style="text-align: right;">2.521364</td>
+<td style="text-align: right;">0.0118163</td>
+<td style="text-align: right;">0.0028413</td>
+<td style="text-align: right;">0.0227689</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alcohol</td>
+<td style="text-align: right;">-0.0814556</td>
+<td style="text-align: right;">0.0375585</td>
+<td style="text-align: right;">-2.168764</td>
+<td style="text-align: right;">0.0302928</td>
+<td style="text-align: right;">-0.1551419</td>
+<td style="text-align: right;">-0.0077693</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">HIV.AIDS</td>
+<td style="text-align: right;">-0.4153210</td>
+<td style="text-align: right;">0.0191870</td>
+<td style="text-align: right;">-21.645997</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-0.4529641</td>
+<td style="text-align: right;">-0.3776780</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">thinness.5.9.years</td>
+<td style="text-align: right;">-0.0626015</td>
+<td style="text-align: right;">0.0301367</td>
+<td style="text-align: right;">-2.077252</td>
+<td style="text-align: right;">0.0379866</td>
+<td style="text-align: right;">-0.1217268</td>
+<td style="text-align: right;">-0.0034762</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Income.composition.of.resources</td>
+<td style="text-align: right;">9.2798242</td>
+<td style="text-align: right;">0.9431914</td>
+<td style="text-align: right;">9.838750</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">7.4293717</td>
+<td style="text-align: right;">11.1302768</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">infant.deaths</td>
+<td style="text-align: right;">0.0986923</td>
+<td style="text-align: right;">0.0113129</td>
+<td style="text-align: right;">8.723857</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0764974</td>
+<td style="text-align: right;">0.1208871</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Schooling</td>
+<td style="text-align: right;">0.8770596</td>
+<td style="text-align: right;">0.0667411</td>
+<td style="text-align: right;">13.141222</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.7461199</td>
+<td style="text-align: right;">1.0079994</td>
+</tr>
+</tbody>
+</table>
 </div>
 <h4 id="analysing-the-effect-of-multicollinearity">Analysing The Effect Of Multicollinearity</h4>
 <p>From the correlation matrix above, we know that the pair of <code>Schooling</code> and <code>Income.composition.of.resources</code> as well as the pair <code>under.five.deaths</code> and <code>infant.deaths</code> are highly correlated. The first model <code>MLR_expectancy</code> adjusts for this by removing one variable each from both correlated pairs while <code>MLR_expectancy_2</code> does not. The impact of not adjusting the model is a decrease in the magnitude of the coefficient estimate which is caused by the newly added correlated variable taking away some of its significance. In our models: <span class="math inline">\(\\\\\)</span> <code>Income.composition.of.resources</code> : 16.6 (without) <br><br/> <code>Income.composition.of.resources</code>: 9.28 (with)<br><br/> <code>under.five.deaths</code>: -2.710e-03 (without)<br><br/> <code>under.five.deaths</code>: -7.494e-02 (with)<br><br/> Therefore, it is not ideal to include correlated covariates <code>Schooling</code> and <code>infant.deaths</code> in the model.</p>
@@ -2977,7 +4112,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>forward_int_sel</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/leaps/man/regsubsets.html'>regsubsets</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Life.expectancy</span> <span class='op'>~</span><span class='va'>.</span> <span class='op'>^</span><span class='fl'>2</span>,data<span class='op'>=</span> <span class='va'>expectancy_train</span>, nvmax <span class='op'>=</span> <span class='fl'>189</span>, method<span class='op'>=</span><span class='st'>"forward"</span><span class='op'>)</span>
@@ -2987,7 +4122,7 @@ hide
 <pre><code>Reordering variables and trying again:</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>forward_int_summary</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>forward_int_sel</span><span class='op'>)</span>
@@ -2996,11 +4131,22 @@ hide
   n_input_variables <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>forward_int_summary</span><span class='op'>$</span><span class='va'>cp</span><span class='op'>)</span><span class='op'>)</span>,
   C_p <span class='op'>=</span> <span class='va'>forward_int_summary</span><span class='op'>$</span><span class='va'>cp</span>
 <span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>forward_int_summary</span><span class='op'>$</span><span class='va'>cp</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>min</a></span><span class='op'>(</span><span class='va'>forward_int_summary</span><span class='op'>$</span><span class='va'>cp</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>[1] 105.696</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">105.696</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>As shown, the lowest <span class="math inline">\(C_p\)</span> for the forward selection models with interaction are much higher than the ones for the additive models. This suggests that the models with interaction may not be as good as that without, and as there are an incredibly large number of variables, we will not be doing any interactive models.</p>
 <h2 id="lasso-model-selection">LASSO Model Selection</h2>
@@ -3008,7 +4154,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
@@ -3026,7 +4172,7 @@ hide
 <pre><code>Figure 6</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cv_lambda_LASSO</span>, main <span class='op'>=</span> <span class='st'>"Lambda selection by CV with LASSO\n\n"</span><span class='op'>)</span>
@@ -3036,7 +4182,7 @@ hide
 <img src="life-expectancy-analysis_files/figure-html5/unnamed-chunk-18-1.png" width="624" />
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cv_lambda_LASSO</span><span class='op'>$</span><span class='va'>glmnet.fit</span>, <span class='st'>"lambda"</span><span class='op'>)</span>
@@ -3047,7 +4193,7 @@ hide
 <pre><code>Figure 7</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>lambda_min_MSE_LASSO</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, lwd <span class='op'>=</span> <span class='fl'>3</span>, lty <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
@@ -3059,14 +4205,25 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lambda_min_MSE_LASSO</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lambda_min_MSE_LASSO</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>[1] 0.00136</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.00136</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>The smallest lambda we found from LASSO is 0.00136.</p>
 <h2 id="ridge-model-selection">Ridge Model Selection</h2>
@@ -3074,7 +4231,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
@@ -3085,7 +4242,7 @@ hide
 <pre><code>Figure 8</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>cv_lambda_RIDGE</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://glmnet.stanford.edu/reference/cv.glmnet.html'>cv.glmnet</a></span><span class='op'>(</span>
@@ -3102,7 +4259,7 @@ hide
 <img src="life-expectancy-analysis_files/figure-html5/unnamed-chunk-20-1.png" width="624" />
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>cv_lambda_RIDGE</span><span class='op'>$</span><span class='va'>glmnet.fit</span>, <span class='st'>"lambda"</span><span class='op'>)</span>
@@ -3113,7 +4270,7 @@ hide
 <pre><code>Figure 9</code></pre>
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>lambda_min_MSE_RIDGE</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"red"</span>, lwd <span class='op'>=</span> <span class='fl'>3</span>, lty <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
@@ -3125,7 +4282,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lambda_min_MSE_RIDGE</span>
@@ -3139,7 +4296,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
@@ -3192,7 +4349,7 @@ hide
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>holdout.prediction</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>model_holdout</span>, newdata <span class='op'>=</span> <span class='va'>expectancy_test</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>2</span><span class='op'>]</span><span class='op'>)</span>
@@ -3257,29 +4414,57 @@ hide
 <span class='va'>RMSE</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>rbind</a></span><span class='op'>(</span><span class='va'>RMSE</span>, <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
                Method <span class='op'>=</span> <span class='st'>"RIDGE Hold-out"</span>,
                RMSE <span class='op'>=</span> <span class='va'>holdout.ridge.rmse</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>RMSE</span> 
+<span class='va'>RMSE</span>  <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code># A tibble: 7 x 2
-  Method          RMSE
-  &lt;chr&gt;          &lt;dbl&gt;
-1 LM Hold-out     3.92
-2 5 fold LM CV    3.92
-3 LASSO CV        3.66
-4 RIDGE CV        3.72
-5 Elastic CV      3.66
-6 LASSO Hold-out  3.67
-7 RIDGE Hold-out  3.66</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Method</th>
+<th style="text-align: right;">RMSE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">LM Hold-out</td>
+<td style="text-align: right;">3.919471</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5 fold LM CV</td>
+<td style="text-align: right;">3.919471</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LASSO CV</td>
+<td style="text-align: right;">3.664512</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RIDGE CV</td>
+<td style="text-align: right;">3.720795</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elastic CV</td>
+<td style="text-align: right;">3.663028</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LASSO Hold-out</td>
+<td style="text-align: right;">3.667097</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RIDGE Hold-out</td>
+<td style="text-align: right;">3.663632</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>We can see that the model with the lowest RMSE is the elastic model with an RMSE of 3.663029. The coefficients for this model can be found below.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>model_elastic</span><span class='op'>$</span><span class='va'>finalModel</span>, <span class='va'>model_elastic</span><span class='op'>$</span><span class='va'>bestTune</span><span class='op'>$</span><span class='va'>lambda</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>model_elastic</span><span class='op'>$</span><span class='va'>finalModel</span>, <span class='va'>model_elastic</span><span class='op'>$</span><span class='va'>bestTune</span><span class='op'>$</span><span class='va'>lambda</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </details>
@@ -3308,21 +4493,35 @@ Schooling                         2.42970613</code></pre>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model_elastic</span><span class='op'>$</span><span class='va'>bestTune</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>model_elastic</span><span class='op'>$</span><span class='va'>bestTune</span> <span class='op'><a href='https://rdrr.io/pkg/hrbrthemes/man/hrbrthemes-exports.html'>%&gt;%</a></span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
 </details>
-<pre><code>   alpha      lambda
-11   0.2 0.002935766</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">alpha</th>
+<th style="text-align: right;">lambda</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.0029358</td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>This model is a convex combination of Ridge and LASSO. The equation to understand the alpha for this elastic model is <span class="math inline">\(\alpha \times LASSO + (1-\alpha) \times RIDGE\)</span>, which combines the L1 and L2 norms.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
-hide
+Show code
 </summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/caret/man/varImp.html'>varImp</a></span><span class='op'>(</span><span class='va'>model_elastic</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Most important variables from elastic CV"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>caption <span class='op'>=</span> <span class='st'>"Figure 10"</span><span class='op'>)</span> 
@@ -3357,7 +4556,7 @@ hide
 <p><span class="math inline">\(^{(2)}\)</span> Tier 1-life expectancy and wellbeing-1.19 life expectancy at birth. Department of Health | Tier 1-Life expectancy and wellbeing-1.19 Life expectancy at birth. (n.d.). Retrieved November 6, 2021, from <a href="https://www1.health.gov.au/internet/publications/publishing.nsf/Content/oatsih-hpf-2012-toc~tier1~life-exp-wellb~119" class="uri">https://www1.health.gov.au/internet/publications/publishing.nsf/Content/oatsih-hpf-2012-toc~tier1~life-exp-wellb~119</a>.</p>
 <p>National Progress Report 2025 Goal: Reduce HBV Deaths. (2021, June 03). Retrieved from <a href="https://www.cdc.gov/hepatitis/policy/NPR/2021/NationalProgressReport-HepB-ReduceDeaths.htm" class="uri">https://www.cdc.gov/hepatitis/policy/NPR/2021/NationalProgressReport-HepB-ReduceDeaths.htm</a></p>
 <p>Clinical Features of Diphtheria. (2020, May 26). Retrieved from <a href="https://www.cdc.gov/diphtheria/clinicians.html" class="uri">https://www.cdc.gov/diphtheria/clinicians.html</a></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -11,9 +11,9 @@ output:
     self_contained: false
     toc: yes
     toc_float: yes
-    code_folding: hide
+    code_folding: yes
     highlight: monochrome
-    df_print: paged
+    df_print: kable
 ---
 
 # Introduction
@@ -59,7 +59,7 @@ To begin with, we first performed some data cleaning and exploration. The explor
 
 Table 1
 ```{r}
-data %>% head(3)
+data %>% head(3) %>% knitr::kable()
 ```
 This dataset contains variables such as country, year, status, life expectancy, etc. The `Adult.Mortality` column represents the adult mortality rates of both genders, which is the probability of dying between 15 and 60 years per 1000 population. `Infant.deaths` showcases the number of infant deaths per 1000 population. The `Alcohol` column describes the total litres of consumption for pure alcohol, which is recorded per capita for ages 15 and older. The `Hepatitis.B`, `Polio`, and `Diphteria` variables demonstrate the percentage of immunization coverage among 1-year-olds for each of those diseases. The `Measles` column signifies the number of reported cases of the measles per 1000 population. thinness..1.19.years` represents the percentage of thinness present in children ranging from the age of 10 to 19 years old. 
 
@@ -78,7 +78,7 @@ cat("Table 2")
 data %>%
     filter(Life.expectancy>0)%>%
     group_by(Status) %>%
-    summarize(mean_expectancy=mean(Life.expectancy))
+    summarize(mean_expectancy=mean(Life.expectancy)) %>% knitr::kable()
 ```
 In the table above, we saw that on average, people in developed countries lived almost a decade longer than people in developing countries.
 
@@ -273,9 +273,9 @@ expectancy_train <- training(initial_split)
 expectancy_test <- testing(initial_split)
 
 cat("Table 3")
-expectancy_train %>% head(2)
+expectancy_train %>% head(2) %>% knitr::kable()
 cat("Table 4")
-expectancy_test %>% head(2)
+expectancy_test %>% head(2) %>% knitr::kable()
 ```
 
 ## Backward Selection
@@ -296,7 +296,7 @@ back_summary_df <- data.frame(
    ADJ.R2 = back_summary$adjr2,
    BIC = back_summary$bic
 )
-back_summary_df %>% head()
+back_summary_df %>% head() %>% knitr::kable()
 ```
 
 ```{r}
@@ -307,7 +307,7 @@ backward_sel_candidate_models <- tibble(
 )
 cat("The best number of predictors to be selected is ", backward_sel_candidate_models %>% filter(C_p==min(C_p)) %>% pull(n_input_variables))
 cat("\nTable 6")
-backward_sel_candidate_models
+backward_sel_candidate_models %>% knitr::kable()
 ```
 ```{r}
 plot(back_summary$cp,
@@ -319,7 +319,7 @@ plot(back_summary$cp,
 The results of our backward selection tell us that the model with 12 variables is the best model, as it has the lowest $C_p$ of 9.988715.  
 
 ```{r}
-back_summary %>% head(1)
+back_summary %>% head(1) %>% knitr::kable()
 ```
 The 12 variables include: `Status`, `Adult.Mortality`, `infant.deaths`, `percentage.expenditure`, `BMI`, `under.five.deaths`, `Diphtheria`, `HIV.AIDS`, `thinness.5.9.years`, `Income.composition.of.resources`, `Schooling` and `Alcohol`. 
 
@@ -347,7 +347,7 @@ forward_summary_df <- data.frame(
    ADJ.R2 = forward_summary$adjr2,
    BIC = forward_summary$bic
 )
-forward_summary_df %>% head()
+forward_summary_df %>% head() %>% knitr::kable()
 ```
 
 Table 8
@@ -360,7 +360,7 @@ forward_sel_candidate_models <- tibble(
 )
 cat("The best number of predictors to be selected is ", forward_sel_candidate_models %>% filter(C_p==min(C_p)) %>% pull(n_input_variables))
 
-forward_sel_candidate_models
+forward_sel_candidate_models %>% knitr::kable()
 ```
 ```{r}
 plot(forward_summary$cp,
@@ -376,7 +376,7 @@ stepwise_selection <- data %>%
     select( -Hepatitis.B, -Measles, -Polio, -Total.expenditure, -GDP, 
            -Population, -thinness..1.19.years, -Schooling, -infant.deaths) %>%
     names() 
-stepwise_selection
+stepwise_selection %>% knitr::kable()
 ```
 
 
@@ -386,14 +386,14 @@ Below, we can find our model, and the summary of our model.
 MLR_expectancy <- lm(Life.expectancy ~ Status + Adult.Mortality + percentage.expenditure
                      + BMI + under.five.deaths + Diphtheria + Alcohol + 
                      HIV.AIDS + thinness.5.9.years + Income.composition.of.resources, data = expectancy_train)
-tidy(MLR_expectancy, conf.int = TRUE)
+tidy(MLR_expectancy, conf.int = TRUE) %>% knitr::kable()
 ```
 ```{r}
 MLR_expectancy_2 <- lm(Life.expectancy ~ Status + Adult.Mortality + percentage.expenditure
                     + BMI + under.five.deaths + Diphtheria + Alcohol + 
                     HIV.AIDS + thinness.5.9.years + Income.composition.of.resources + 
                       infant.deaths + Schooling, data = expectancy_train)
-tidy(MLR_expectancy_2, conf.int=TRUE)
+tidy(MLR_expectancy_2, conf.int=TRUE) %>% knitr::kable()
 ```
 
 #### Analysing The Effect Of Multicollinearity
@@ -414,7 +414,7 @@ forward_int_sel_candidate_models <- tibble(
   n_input_variables = rep(1:length(forward_int_summary$cp)),
   C_p = forward_int_summary$cp
 )
-min(forward_int_summary$cp)
+min(forward_int_summary$cp) %>% knitr::kable()
 ```
 
 As shown, the lowest $C_p$ for the forward selection models with interaction are much higher than the ones for the additive models. This suggests that the models with interaction may not be as good as that without, and as there are an incredibly large number of variables, we will not be doing any interactive models. 
@@ -441,7 +441,7 @@ abline(v = log(lambda_min_MSE_LASSO), col = "red", lwd = 3, lty = 2)
 ```
 
 ```{r}
-lambda_min_MSE_LASSO
+lambda_min_MSE_LASSO %>% knitr::kable()
 ```
 
 The smallest lambda we found from LASSO is 0.00136.
@@ -591,16 +591,16 @@ RMSE <- rbind(RMSE, tibble(
 RMSE <- rbind(RMSE, tibble(
                Method = "RIDGE Hold-out",
                RMSE = holdout.ridge.rmse))
-RMSE 
+RMSE  %>% knitr::kable()
 ```
 
 We can see that the model with the lowest RMSE is the elastic model with an RMSE of 3.663029. The coefficients for this model can be found below.
 
 ```{r}
-coef(model_elastic$finalModel, model_elastic$bestTune$lambda)
+coef(model_elastic$finalModel, model_elastic$bestTune$lambda) 
 ``` 
 ```{r}
-model_elastic$bestTune
+model_elastic$bestTune %>% knitr::kable()
 ```
 
 This model is a convex combination of Ridge and LASSO. The equation to understand the alpha for this elastic model is $\alpha \times LASSO + (1-\alpha) \times RIDGE$, which combines the L1 and L2 norms.
