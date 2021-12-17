@@ -3,7 +3,7 @@ title: "Life Expectancy Analysis"
 description: |
   A short description of the post.
 author:
-  - name: Nora Jones
+  - name: Blaise Appolinary
     url: https://example.com/norajones
 date: 2021-12-17
 output:
