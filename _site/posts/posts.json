@@ -5,15 +5,15 @@
     "description": "A short description of the post.",
     "author": [
       {
-        "name": "Nora Jones",
+        "name": "Blaise Appolinary",
         "url": "https://example.com/norajones"
       }
     ],
     "date": "2021-12-17",
     "categories": [],
-    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "contents": "\r\ncool stuff Distill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-12-17T12:27:07-08:00",
+    "last_modified": "2021-12-17T12:37:33-08:00",
     "input_file": {}
   },
   {
