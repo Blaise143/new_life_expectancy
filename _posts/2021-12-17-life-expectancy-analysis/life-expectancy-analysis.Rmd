@@ -44,6 +44,7 @@ library(glmnet)
 library(GGally)
 library(DT)
 library(broom)
+library(corrgram)
 options(repr.plot.width = 8, repr.plot.height = 8)
 library(knitr)
 ```
@@ -232,18 +233,14 @@ p3+
 
 
 **Correlation matrix**
-```{r correlation matrix, warning=FALSE, message=FALSE}
+```{r correlation matrix, warning=FALSE, message=FALSE, fig.cap="Correlation Matrix"}
 data_num <- data %>% select(-Country, -Year, -Status)
 
-ggcorr(
-  data_num,
-  cor_matrix = cor(data_num, use = "pairwise"),
-    label = T, 
-    hjust = 0.95,
-    angle = 0,
-    size = 4,
-    layout.exp = 3
-)
+corrgram(data_num, 
+         order=NULL, 
+         lower.panel=panel.shade, 
+         upper.panel=panel.pie, 
+         text.panel=panel.txt)
 
 ```
 
@@ -258,6 +255,7 @@ ggcorr(
 ## Preparing the data
 
 Our first step is to ensure all of our variables can be used in the regression and then splitting the dataset into testing and training sets. For this study, we will be using a proportion of 0.75. We will not be using the Country and Year categories in this model as our aim is to predict the life expectancy based on factors that are more general and not specific to a place or time. Furthermore, the Country variable has over 150 levels, which will make our model extremely large. 
+
 
 ```{r}
 data <- data %>% 
@@ -284,7 +282,7 @@ expectancy_test %>% head(2) %>% kbl(caption = "Table 4: First few contents of th
 ## Backward Selection
 We will now be performing variable selection using regsubsets. Our nvmax is 19 as there are 19 remaining variables in the dataset.
 
-Table 5
+
 ```{r}
 #Variable selection 
 
@@ -312,7 +310,8 @@ backward_sel_candidate_models <- tibble(
 cat("The best number of predictors to be selected is ", backward_sel_candidate_models %>% filter(C_p==min(C_p)) %>% pull(n_input_variables))
 cat("\nTable 6")
 backward_sel_candidate_models %>% kbl(caption = "Table 6") %>%
-  kable_paper("hover", full_width = F)
+  kable_paper("hover", full_width = F) %>% 
+  row_spec(12, bold = T, color = "white", background = "brown")
 ```
 ```{r}
 plot(back_summary$cp,
@@ -335,6 +334,7 @@ The 12 variables include: `Status`, `Adult.Mortality`, `infant.deaths`, `percent
 - While Status and percentage expenditure both impact life expectancy, GDP and total expenditure do not. This makes sense as GDP and total expenditure are both absolute measures, and do not consider population of a country, while percentage expenditure takes into account the differences between population and cost of living in different areas. 
 
 ##  Forward Selection
+
 Using the same methods, we will now be performing forward selection.
 
 
@@ -359,6 +359,7 @@ forward_summary_df %>% head() %>% kbl() %>% kable_paper("hover", full_width=0)
 
 
 The number of inputs with the minimal C_P is 12
+
 ```{r, comment="Table 8"}
 ## Using Mallow's C_P to find the right number of inputs
 forward_sel_candidate_models <- tibble(
