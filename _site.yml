@@ -1,7 +1,7 @@
 name: "new_life_expectancy"
-title: "My New Blog"
+title: "My Portfolio"
 description: |
-  My New Blog
+  My Portfolio
 output_dir: "_site"
 navbar:
   right:

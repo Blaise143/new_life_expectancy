@@ -22,6 +22,7 @@ Life expectancy is an estimate of how long a person would live on average. Throu
 # Loading necessary packages for the Analysis
 ```{r Loading packages, results='hide', warning=FALSE, message=FALSE}
 library(hrbrthemes)
+library(kableExtra)
 library(ggstar)
 library(viridis)
 library(ggExtra)
@@ -57,9 +58,10 @@ To begin with, we first performed some data cleaning and exploration. The explor
 
 ## Data preview and cleaning
 
+
 Table 1
 ```{r}
-data %>% head(3) %>% knitr::kable()
+data %>% head(3) %>% rmarkdown::paged_table()
 ```
 This dataset contains variables such as country, year, status, life expectancy, etc. The `Adult.Mortality` column represents the adult mortality rates of both genders, which is the probability of dying between 15 and 60 years per 1000 population. `Infant.deaths` showcases the number of infant deaths per 1000 population. The `Alcohol` column describes the total litres of consumption for pure alcohol, which is recorded per capita for ages 15 and older. The `Hepatitis.B`, `Polio`, and `Diphteria` variables demonstrate the percentage of immunization coverage among 1-year-olds for each of those diseases. The `Measles` column signifies the number of reported cases of the measles per 1000 population. thinness..1.19.years` represents the percentage of thinness present in children ranging from the age of 10 to 19 years old. 
 
@@ -73,18 +75,21 @@ The dataframe has 1649 rows and 20 attributes.
 ####  Comparison of mean life expectancy rate between developed and developing countries
 To get an understanding of how the development status of a country is correlated with life expectancy, we compared the mean life expectancy of developed and developing countries.
 
+
+Table 2
+
 ```{r}
-cat("Table 2")
 data %>%
-    filter(Life.expectancy>0)%>%
-    group_by(Status) %>%
-    summarize(mean_expectancy=mean(Life.expectancy)) %>% knitr::kable()
+  filter(Life.expectancy>0)%>%
+  group_by(Status) %>%
+  summarize(mean_life_expectancy=mean(Life.expectancy)) %>% kbl() %>%
+  kable_paper("hover", full_width = F)
 ```
 In the table above, we saw that on average, people in developed countries lived almost a decade longer than people in developing countries.
 
 To better vizualize the correlation between the development status of a country and Life expectancy, we created a boxplot as shown below. 
 
-```{r, warning=FALSE}
+```{r, warning=FALSE, fig.cap="Box Plot showing development status and life expectancy"}
 #Plot showing life expectancy in different country status
 plt <- ggbetweenstats(
   data = data,
@@ -136,8 +141,8 @@ As we can see here, there is a stark difference in the life expectancy in develo
 
 The next categorical variable is Country. To show this, we created a map depicting the average life expectancy in each country.
 
-Figure 2
-```{r, warning=FALSE}
+
+```{r, warning=FALSE, fig.cap="A geographic plot showing different  "}
 
 new_data <- data #%>% na.omit()
 summary_data <- new_data %>% 
@@ -207,7 +212,7 @@ ggMarginal(p2, type="density", fill="grey")
 
 p3 <- data %>% 
   ggplot()+
-  geom_star(aes(Income.composition.of.resources, Adult.Mortality,
+  geom_point(aes(Income.composition.of.resources, Adult.Mortality,
                  color=Country,
                  fill=Status,alpha=0.5, size= GDP), shape=21)+
   scale_size(range=c(.1, 15))+
@@ -224,11 +229,7 @@ p3+
 ```
 
 
-**Correlation network plot**
-```{r networkplot, warning=FALSE, message=FALSE}
-correl<- corrr::correlate(data %>% select_if(is.numeric)) %>% network_plot()
-correl
-```
+
 
 **Correlation matrix**
 ```{r correlation matrix, warning=FALSE, message=FALSE}
@@ -272,10 +273,12 @@ initial_split <- initial_split(data, prop = 0.75)
 expectancy_train <- training(initial_split)
 expectancy_test <- testing(initial_split)
 
-cat("Table 3")
-expectancy_train %>% head(2) %>% knitr::kable()
-cat("Table 4")
-expectancy_test %>% head(2) %>% knitr::kable()
+
+expectancy_train %>% head(2) %>% kbl(caption = "Table 3: First few contents of the training set") %>%
+  kable_paper("hover", full_width = F)
+
+expectancy_test %>% head(2) %>% kbl(caption = "Table 4: First few contents of the test set") %>%
+  kable_paper("hover", full_width = F)
 ```
 
 ## Backward Selection
@@ -296,7 +299,8 @@ back_summary_df <- data.frame(
    ADJ.R2 = back_summary$adjr2,
    BIC = back_summary$bic
 )
-back_summary_df %>% head() %>% knitr::kable()
+back_summary_df %>% head() %>% kbl(caption = "Backward selection") %>%
+  kable_paper("hover", full_width = F)
 ```
 
 ```{r}
@@ -307,7 +311,8 @@ backward_sel_candidate_models <- tibble(
 )
 cat("The best number of predictors to be selected is ", backward_sel_candidate_models %>% filter(C_p==min(C_p)) %>% pull(n_input_variables))
 cat("\nTable 6")
-backward_sel_candidate_models %>% knitr::kable()
+backward_sel_candidate_models %>% kbl(caption = "Table 6") %>%
+  kable_paper("hover", full_width = F)
 ```
 ```{r}
 plot(back_summary$cp,
@@ -319,7 +324,8 @@ plot(back_summary$cp,
 The results of our backward selection tell us that the model with 12 variables is the best model, as it has the lowest $C_p$ of 9.988715.  
 
 ```{r}
-back_summary %>% head(1) %>% knitr::kable()
+back_summary %>% head(1) %>% kbl() %>%
+  kable_paper("hover", full_width = F)
 ```
 The 12 variables include: `Status`, `Adult.Mortality`, `infant.deaths`, `percentage.expenditure`, `BMI`, `under.five.deaths`, `Diphtheria`, `HIV.AIDS`, `thinness.5.9.years`, `Income.composition.of.resources`, `Schooling` and `Alcohol`. 
 
@@ -347,20 +353,20 @@ forward_summary_df <- data.frame(
    ADJ.R2 = forward_summary$adjr2,
    BIC = forward_summary$bic
 )
-forward_summary_df %>% head() %>% knitr::kable()
+forward_summary_df %>% head() %>% kbl() %>% kable_paper("hover", full_width=0)
 ```
 
-Table 8
 
-```{r}
+
+The number of inputs with the minimal C_P is 12
+```{r, comment="Table 8"}
 ## Using Mallow's C_P to find the right number of inputs
 forward_sel_candidate_models <- tibble(
   n_input_variables = rep(1:19),
   C_p = forward_summary$cp
 )
-cat("The best number of predictors to be selected is ", forward_sel_candidate_models %>% filter(C_p==min(C_p)) %>% pull(n_input_variables))
 
-forward_sel_candidate_models %>% knitr::kable()
+forward_sel_candidate_models %>% kbl %>% kable_paper("hover", full_width=0) %>% row_spec(12, bold = T, color = "white", background = "brown")
 ```
 ```{r}
 plot(forward_summary$cp,
@@ -371,12 +377,12 @@ plot(forward_summary$cp,
 
 The model size we get is the same for both forward and backward selection, and contains the same variables. Due to multicollinearity, we will be removing the `Schooling` and `infant.deaths` from our model. The covariates we will be using are listed below as stepwise_selection. 
 
-```{r}
+```{r, comment="selected variables"}
 stepwise_selection <- data %>%
     select( -Hepatitis.B, -Measles, -Polio, -Total.expenditure, -GDP, 
            -Population, -thinness..1.19.years, -Schooling, -infant.deaths) %>%
     names() 
-stepwise_selection %>% knitr::kable()
+stepwise_selection %>% kbl() %>% kable_paper("hover", full_width=0)
 ```
 
 
@@ -386,14 +392,16 @@ Below, we can find our model, and the summary of our model.
 MLR_expectancy <- lm(Life.expectancy ~ Status + Adult.Mortality + percentage.expenditure
                      + BMI + under.five.deaths + Diphtheria + Alcohol + 
                      HIV.AIDS + thinness.5.9.years + Income.composition.of.resources, data = expectancy_train)
-tidy(MLR_expectancy, conf.int = TRUE) %>% knitr::kable()
+tidy(MLR_expectancy, conf.int = TRUE) %>% kbl() %>% 
+  kable_paper("hover", full_width=0)
 ```
 ```{r}
 MLR_expectancy_2 <- lm(Life.expectancy ~ Status + Adult.Mortality + percentage.expenditure
                     + BMI + under.five.deaths + Diphtheria + Alcohol + 
                     HIV.AIDS + thinness.5.9.years + Income.composition.of.resources + 
                       infant.deaths + Schooling, data = expectancy_train)
-tidy(MLR_expectancy_2, conf.int=TRUE) %>% knitr::kable()
+tidy(MLR_expectancy_2, conf.int=TRUE) %>% kbl() %>% 
+  kable_paper("hover", full_width=0)
 ```
 
 #### Analysing The Effect Of Multicollinearity
@@ -414,7 +422,8 @@ forward_int_sel_candidate_models <- tibble(
   n_input_variables = rep(1:length(forward_int_summary$cp)),
   C_p = forward_int_summary$cp
 )
-min(forward_int_summary$cp) %>% knitr::kable()
+min(forward_int_summary$cp) %>% kbl(caption = "Min C_p") %>% 
+  kable_paper("hover", full_width=0)
 ```
 
 As shown, the lowest $C_p$ for the forward selection models with interaction are much higher than the ones for the additive models. This suggests that the models with interaction may not be as good as that without, and as there are an incredibly large number of variables, we will not be doing any interactive models. 
@@ -422,7 +431,7 @@ As shown, the lowest $C_p$ for the forward selection models with interaction are
 ## LASSO Model Selection
 We will now be using LASSO to further see what model is the best when all the covariates are included. Below, we use `cv.glmnet` to find the smallest lambda to further create a model and do analysis.
 
-```{r}
+```{r, fig.cap=TRUE}
 set.seed(123)
 cv_lambda_LASSO <- cv.glmnet(
   x = as.matrix(expectancy_train[,-c(1,2)]), y = as.matrix(expectancy_train[,2]),
@@ -431,17 +440,17 @@ cv_lambda_LASSO <- cv.glmnet(
   family = 'poisson'
 )
 lambda_min_MSE_LASSO <- round(cv_lambda_LASSO$lambda.min, 5)
-cat("Figure 6\n")
+
 plot(cv_lambda_LASSO, main = "Lambda selection by CV with LASSO\n\n")
 plot(cv_lambda_LASSO$glmnet.fit, "lambda")
-cat("Figure 7")
 abline(v = log(lambda_min_MSE_LASSO), col = "red", lwd = 3, lty = 2)
 
 
 ```
 
 ```{r}
-lambda_min_MSE_LASSO %>% knitr::kable()
+lambda_min_MSE_LASSO %>% kbl() %>% 
+  kable_paper("hover", full_width=0)
 ```
 
 The smallest lambda we found from LASSO is 0.00136.
@@ -450,9 +459,9 @@ The smallest lambda we found from LASSO is 0.00136.
 
 We will also be using ridge as a model selection method. Below, we perform ridge and find the smallest lambda for our models. 
 
-```{r}
+```{r, fig.cap=TRUE}
 set.seed(123)
-cat("Figure 8")
+
 cv_lambda_RIDGE <- cv.glmnet(
   x = as.matrix(expectancy_train[,-c(1,2)]), y = as.matrix(expectancy_train[,2]),
   alpha = 0,
@@ -462,7 +471,7 @@ cv_lambda_RIDGE <- cv.glmnet(
 lambda_min_MSE_RIDGE <- round(cv_lambda_RIDGE$lambda.min, 5)
 plot(cv_lambda_RIDGE, main = "Lambda selection by CV with RIDGE\n\n")
 plot(cv_lambda_RIDGE$glmnet.fit, "lambda")
-cat("Figure 9")
+
 abline(v = log(lambda_min_MSE_RIDGE), col = "red", lwd = 3, lty = 2)
 
 ```
@@ -479,7 +488,7 @@ We will now be performing cross-validation to test our predictive model. Below, 
 - `model_ridge_cv` and `model_ridge_holdout` are the cross validation with 5 fold and holdout models built using ridge for the cross validation and the lambda found from ridge for the holdout model. 
 - Lastly, `model_elastic` is the cross validation done for 5-fold using the elastic method.
 
-```{r}
+```{r, warning=FALSE}
 set.seed(123)
 lambda <- 10^seq(-3, 3, length = 100)
 # define training control
@@ -591,7 +600,8 @@ RMSE <- rbind(RMSE, tibble(
 RMSE <- rbind(RMSE, tibble(
                Method = "RIDGE Hold-out",
                RMSE = holdout.ridge.rmse))
-RMSE  %>% knitr::kable()
+RMSE  %>% kbl() %>% 
+  kable_paper("hover", full_width=0)
 ```
 
 We can see that the model with the lowest RMSE is the elastic model with an RMSE of 3.663029. The coefficients for this model can be found below.
@@ -600,7 +610,8 @@ We can see that the model with the lowest RMSE is the elastic model with an RMSE
 coef(model_elastic$finalModel, model_elastic$bestTune$lambda) 
 ``` 
 ```{r}
-model_elastic$bestTune %>% knitr::kable()
+model_elastic$bestTune %>% kbl() %>% 
+  kable_paper("hover", full_width=0)
 ```
 
 This model is a convex combination of Ridge and LASSO. The equation to understand the alpha for this elastic model is $\alpha \times LASSO + (1-\alpha) \times RIDGE$, which combines the L1 and L2 norms.
