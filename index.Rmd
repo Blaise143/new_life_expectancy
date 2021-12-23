@@ -1,5 +1,5 @@
 ---
-title: "Blaise Appolinary Portfolio"
+title: "My Projects"
 site: distill::distill_website
 listing: posts
 ---
