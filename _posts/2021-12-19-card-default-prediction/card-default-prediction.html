@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { font-weight: bold; } /* Alert */
+code span.an { font-style: italic; } /* Annotation */
+code span.cf { font-weight: bold; } /* ControlFlow */
+code span.co { font-style: italic; } /* Comment */
+code span.cv { font-style: italic; } /* CommentVar */
+code span.do { font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.er { font-weight: bold; } /* Error */
+code span.in { font-style: italic; } /* Information */
+code span.kw { font-weight: bold; } /* Keyword */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.wa { font-style: italic; } /* Warning */
+</style>
+
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Card Default Visualization and Prediction</title>
+
+  <meta property="description" itemprop="description" content="The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+
+
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2021-12-17"/>
+  <meta property="article:created" itemprop="dateCreated" content="2021-12-17"/>
+  <meta name="article:author" content="Blaise Appolinary"/>
+  <meta name="article:author" content="Amogh Joshi"/>
+  <meta name="article:author" content="Derrick Cheng"/>
+  <meta name="article:author" content="Michael Hoefert"/>
+
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Card Default Visualization and Prediction"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Card Default Visualization and Prediction"/>
+  <meta property="twitter:description" content="The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Card Default Visualization and Prediction"]},{"type":"character","attributes":{},"value":["The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\"\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://ca.linkedin.com/in/blaise-appolinary-038a42179"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amogh Joshi"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Derrick Cheng"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Michael Hoefert"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding","highlight","df_print"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["monochrome"]},{"type":"character","attributes":{},"value":["kable"]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["card-default-prediction_files/anchor-4.2.2/anchor.min.js","card-default-prediction_files/bowser-1.9.3/bowser.min.js","card-default-prediction_files/distill-2.2.21/template.v2.js","card-default-prediction_files/figure-html5/heatmap-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-1-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-11-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-12-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-2-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-3-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-4-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-5-1.png","card-default-prediction_files/figure-html5/unnamed-chunk-7-1.png","card-default-prediction_files/header-attrs-2.11/header-attrs.js","card-default-prediction_files/jquery-3.6.0/jquery-3.6.0.js","card-default-prediction_files/jquery-3.6.0/jquery-3.6.0.min.js","card-default-prediction_files/jquery-3.6.0/jquery-3.6.0.min.map","card-default-prediction_files/kePrint-0.0.1/kePrint.js","card-default-prediction_files/lightable-0.0.1/lightable.css","card-default-prediction_files/pagedtable-1.1/css/pagedtable.css","card-default-prediction_files/pagedtable-1.1/js/pagedtable.js","card-default-prediction_files/popper-2.6.0/popper.min.js","card-default-prediction_files/tippy-6.2.7/tippy-bundle.umd.min.js","card-default-prediction_files/tippy-6.2.7/tippy-light-border.css","card-default-prediction_files/tippy-6.2.7/tippy.css","card-default-prediction_files/tippy-6.2.7/tippy.umd.min.js","card-default-prediction_files/webcomponents-2.0.0/webcomponents.js","credit_card.xls"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+  <style type="text/css">
+
+  body {
+    background-color: white;
+  }
+
+  .pandoc-table {
+    width: 100%;
+  }
+
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+
+  d-byline .byline {
+    grid-template-columns: 2fr 2fr;
+  }
+
+  d-byline .byline h3 {
+    margin-block-start: 1.5em;
+  }
+
+  d-byline .byline .authors-affiliations h3 {
+    margin-block-start: 0.5em;
+  }
+
+  .authors-affiliations .orcid-id {
+    width: 16px;
+    height:16px;
+    margin-left: 4px;
+    margin-right: 4px;
+    vertical-align: middle;
+    padding-bottom: 2px;
+  }
+
+  d-title .dt-tags {
+    margin-top: 1em;
+    grid-column: text;
+  }
+
+  .dt-tags .dt-tag {
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0em 0.4em;
+    margin-right: 0.5em;
+    margin-bottom: 0.4em;
+    font-size: 70%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  d-article table.gt_table td,
+  d-article table.gt_table th {
+    border-bottom: none;
+  }
+
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .shaded .shaded-content {
+    background: white;
+  }
+
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  d-article {
+    padding-top: 2.5rem;
+    padding-bottom: 30px;
+  }
+
+  d-appendix {
+    padding-top: 30px;
+  }
+
+  d-article>p>img {
+    width: 100%;
+  }
+
+  d-article h2 {
+    margin: 1rem 0 1.5rem 0;
+  }
+
+  d-article h3 {
+    margin-top: 1.5rem;
+  }
+
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+
+  /* Tweak code blocks */
+
+  d-article div.sourceCode code,
+  d-article pre code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: auto;
+  }
+
+  d-article div.sourceCode {
+    background-color: white;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+
+  d-article pre {
+    font-size: 12px;
+    color: black;
+    background: none;
+    margin-top: 0;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  d-article pre a {
+    border-bottom: none;
+  }
+
+  d-article pre a:hover {
+    border-bottom: none;
+    text-decoration: underline;
+  }
+
+  d-article details {
+    grid-column: text;
+    margin-bottom: 0.8em;
+  }
+
+  @media(min-width: 768px) {
+
+  d-article pre,
+  d-article div.sourceCode,
+  d-article div.sourceCode pre {
+    overflow: visible !important;
+  }
+
+  d-article div.sourceCode pre {
+    padding-left: 18px;
+    font-size: 14px;
+  }
+
+  d-article pre {
+    font-size: 14px;
+  }
+
+  }
+
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  /* CSS for d-contents */
+
+  .d-contents {
+    grid-column: text;
+    color: rgba(0,0,0,0.8);
+    font-size: 0.9em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.25em;
+    justify-self: start;
+  }
+
+  @media(min-width: 1000px) {
+    .d-contents.d-contents-float {
+      height: 0;
+      grid-column-start: 1;
+      grid-column-end: 4;
+      justify-self: center;
+      padding-right: 3em;
+      padding-left: 2em;
+    }
+  }
+
+  .d-contents nav h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 1em;
+  }
+
+  .d-contents li {
+    list-style-type: none
+  }
+
+  .d-contents nav > ul {
+    padding-left: 0;
+  }
+
+  .d-contents ul {
+    padding-left: 1em
+  }
+
+  .d-contents nav ul li {
+    margin-top: 0.6em;
+    margin-bottom: 0.2em;
+  }
+
+  .d-contents nav a {
+    font-size: 13px;
+    border-bottom: none;
+    text-decoration: none
+    color: rgba(0, 0, 0, 0.8);
+  }
+
+  .d-contents nav a:hover {
+    text-decoration: underline solid rgba(0, 0, 0, 0.6)
+  }
+
+  .d-contents nav > ul > li > a {
+    font-weight: 600;
+  }
+
+  .d-contents nav > ul > li > ul {
+    font-weight: inherit;
+  }
+
+  .d-contents nav > ul > li > ul > li {
+    margin-top: 0.2em;
+  }
+
+
+  .d-contents nav ul {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+  }
+
+  .d-article-with-toc h2:nth-child(2) {
+    margin-top: 0;
+  }
+
+
+  /* Figure */
+
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+
+  .figure img {
+    width: 100%;
+  }
+
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+
+  /* Citations */
+
+  d-article .citation {
+    color: inherit;
+    cursor: inherit;
+  }
+
+  div.hanging-indent{
+    margin-left: 1em; text-indent: -1em;
+  }
+
+  /* Citation hover box */
+
+  .tippy-box[data-theme~=light-border] {
+    background-color: rgba(250, 250, 250, 0.95);
+  }
+
+  .tippy-content > p {
+    margin-bottom: 0;
+    padding: 2px;
+  }
+
+
+  /* Tweak 1000px media break to show more text */
+
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+
+    .grid {
+      grid-column-gap: 16px;
+    }
+
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+
+
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Include appendix styles here so they can be overridden */
+
+  d-appendix {
+    contain: layout style;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-top: 60px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: rgba(0,0,0,0.5);
+    padding-top: 60px;
+    padding-bottom: 48px;
+  }
+
+  d-appendix h3 {
+    grid-column: page-start / text-start;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.65);
+  }
+
+  d-appendix h3 + * {
+    margin-top: 1em;
+  }
+
+  d-appendix ol {
+    padding: 0 0 0 15px;
+  }
+
+  @media (min-width: 768px) {
+    d-appendix ol {
+      padding: 0 0 0 30px;
+      margin-left: -30px;
+    }
+  }
+
+  d-appendix li {
+    margin-bottom: 1em;
+  }
+
+  d-appendix a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  d-appendix > * {
+    grid-column: text;
+  }
+
+  d-appendix > d-footnote-list,
+  d-appendix > d-citation-list,
+  d-appendix > distill-appendix {
+    grid-column: screen;
+  }
+
+  /* Include footnote styles here so they can be overridden */
+
+  d-footnote-list {
+    contain: layout style;
+  }
+
+  d-footnote-list > * {
+    grid-column: text;
+  }
+
+  d-footnote-list a.footnote-backlink {
+    color: rgba(0,0,0,0.3);
+    padding-left: 0.5em;
+  }
+
+
+
+  /* Anchor.js */
+
+  .anchorjs-link {
+    /*transition: all .25s linear; */
+    text-decoration: none;
+    border-bottom: none;
+  }
+  *:hover > .anchorjs-link {
+    margin-left: -1.125em !important;
+    text-decoration: none;
+    border-bottom: none;
+  }
+
+  /* Social footer */
+
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+
+  .disqus-comments {
+    margin-right: 30px;
+  }
+
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  #disqus_thread {
+    margin-top: 30px;
+  }
+
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+
+
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+
+
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+
+  /* Styles for listing layout (hide title) */
+  .layout-listing d-title, .layout-listing .d-title {
+    display: none;
+  }
+
+  /* Styles for posts lists (not auto-injected) */
+
+
+  .posts-with-sidebar {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .posts-list .description h2,
+  .posts-list .description p {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .posts-list .description h2 {
+    font-weight: 700;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .posts-list h2.post-tag {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 12px;
+  }
+  .posts-list {
+    margin-top: 60px;
+    margin-bottom: 24px;
+  }
+
+  .posts-list .post-preview {
+    text-decoration: none;
+    overflow: hidden;
+    display: block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 24px 0;
+  }
+
+  .post-preview-last {
+    border-bottom: none !important;
+  }
+
+  .posts-list .posts-list-caption {
+    grid-column: screen;
+    font-weight: 400;
+  }
+
+  .posts-list .post-preview h2 {
+    margin: 0 0 6px 0;
+    line-height: 1.2em;
+    font-style: normal;
+    font-size: 24px;
+  }
+
+  .posts-list .post-preview p {
+    margin: 0 0 12px 0;
+    line-height: 1.4em;
+    font-size: 16px;
+  }
+
+  .posts-list .post-preview .thumbnail {
+    box-sizing: border-box;
+    margin-bottom: 24px;
+    position: relative;
+    max-width: 500px;
+  }
+  .posts-list .post-preview img {
+    width: 100%;
+    display: block;
+  }
+
+  .posts-list .metadata {
+    font-size: 12px;
+    line-height: 1.4em;
+    margin-bottom: 18px;
+  }
+
+  .posts-list .metadata > * {
+    display: inline-block;
+  }
+
+  .posts-list .metadata .publishedDate {
+    margin-right: 2em;
+  }
+
+  .posts-list .metadata .dt-authors {
+    display: block;
+    margin-top: 0.3em;
+    margin-right: 2em;
+  }
+
+  .posts-list .dt-tags {
+    display: block;
+    line-height: 1em;
+  }
+
+  .posts-list .dt-tags .dt-tag {
+    display: inline-block;
+    color: rgba(0,0,0,0.6);
+    padding: 0.3em 0.4em;
+    margin-right: 0.2em;
+    margin-bottom: 0.4em;
+    font-size: 60%;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .posts-list img {
+    opacity: 1;
+  }
+
+  .posts-list img[data-src] {
+    opacity: 0;
+  }
+
+  .posts-more {
+    clear: both;
+  }
+
+
+  .posts-sidebar {
+    font-size: 16px;
+  }
+
+  .posts-sidebar h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .sidebar-section {
+    margin-bottom: 30px;
+  }
+
+  .categories ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .categories li {
+    color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 0;
+  }
+
+  .categories li>a {
+    border-bottom: none;
+  }
+
+  .categories li>a:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  }
+
+  .categories .active {
+    font-weight: 600;
+  }
+
+  .categories .category-count {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+
+  @media(min-width: 768px) {
+    .posts-list .post-preview h2 {
+      font-size: 26px;
+    }
+    .posts-list .post-preview .thumbnail {
+      float: right;
+      width: 30%;
+      margin-bottom: 0;
+    }
+    .posts-list .post-preview .description {
+      float: left;
+      width: 45%;
+    }
+    .posts-list .post-preview .metadata {
+      float: left;
+      width: 20%;
+      margin-top: 8px;
+    }
+    .posts-list .post-preview p {
+      margin: 0 0 12px 0;
+      line-height: 1.5em;
+      font-size: 16px;
+    }
+    .posts-with-sidebar .posts-list {
+      float: left;
+      width: 75%;
+    }
+    .posts-with-sidebar .posts-sidebar {
+      float: right;
+      width: 20%;
+      margin-top: 60px;
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+
+
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+
+
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+
+  .downlevel .posts-list .post-preview {
+    color: inherit;
+  }
+
+
+
+  </style>
+
+  <script type="application/javascript">
+
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+
+  // show body when load is complete
+  function on_load_complete() {
+
+    // add anchors
+    if (window.anchors) {
+      window.anchors.options.placement = 'left';
+      window.anchors.add('d-article > h2, d-article > h3, d-article > h4, d-article > h5');
+    }
+
+
+    // set body to visible
+    document.body.style.visibility = 'visible';
+
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+
+  function init_distill() {
+
+    init_common();
+
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+
+    // move refs into #references-listing
+    $('#references-listing').replaceWith($('#refs'));
+
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-contents a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+
+      // capture layout
+      var layout = $(this).attr('data-layout');
+
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('details, div.sourceCode, pre, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+
+
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+
+    // remove code block used to force  highlighting css
+    $('.distill-force-highlighting-css').parent().remove();
+
+    // remove empty line numbers inserted by pandoc when using a
+    // custom syntax highlighting theme
+    $('code.sourceCode a:empty').remove();
+
+    // load distill framework
+    load_distill_framework();
+
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+
+      // article with toc class
+      $('.d-contents').parent().addClass('d-article-with-toc');
+
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+      // add orcid ids
+      $('.authors-affiliations').find('.author').each(function(i, el) {
+        var orcid_id = front_matter.authors[i].orcidID;
+        if (orcid_id) {
+          var a = $('<a></a>');
+          a.attr('href', 'https://orcid.org/' + orcid_id);
+          var img = $('<img></img>');
+          img.addClass('orcid-id');
+          img.attr('alt', 'ORCID ID');
+          img.attr('src','data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==');
+          a.append(img);
+          $(this).append(a);
+        }
+      });
+
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+
+      // remove d-appendix and d-footnote-list local styles
+      $('d-appendix > style:first-child').remove();
+      $('d-footnote-list > style:first-child').remove();
+
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+
+      // hoverable references
+      $('span.citation[data-cites]').each(function() {
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
+        window.tippy(this, {
+          allowHTML: true,
+          content: refHtml,
+          maxWidth: 500,
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start'
+        });
+      });
+
+      // clear polling timer
+      clearInterval(tid);
+
+      // show body now that everything is ready
+      on_load_complete();
+    }
+
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+
+  }
+
+  function init_downlevel() {
+
+    init_common();
+
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+
+    // remove toc
+    $('.d-contents').remove();
+
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+
+
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+
+    $('body').addClass('downlevel');
+
+    on_load_complete();
+  }
+
+
+  function init_common() {
+
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+
+      }
+    });
+
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+
+  </script>
+
+  <!--/radix_placeholder_distill-->
+  <script src="card-default-prediction_files/header-attrs-2.11/header-attrs.js"></script>
+  <link href="card-default-prediction_files/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+  <script src="card-default-prediction_files/pagedtable-1.1/js/pagedtable.js"></script>
+  <script src="card-default-prediction_files/kePrint-0.0.1/kePrint.js"></script>
+  <link href="card-default-prediction_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+  <script src="card-default-prediction_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="card-default-prediction_files/popper-2.6.0/popper.min.js"></script>
+  <link href="card-default-prediction_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="card-default-prediction_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="card-default-prediction_files/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="card-default-prediction_files/anchor-4.2.2/anchor.min.js"></script>
+  <script src="card-default-prediction_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="card-default-prediction_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="card-default-prediction_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Card Default Visualization and Prediction","description":"The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\"","authors":[{"author":"Blaise Appolinary","authorURL":"https://ca.linkedin.com/in/blaise-appolinary-038a42179","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Amogh Joshi","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Derrick Cheng","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Michael Hoefert","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000-08:00","citationText":"Appolinary, et al., 2021"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Card Default Visualization and Prediction</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
+<p><p>The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: “How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?”</p></p>
+</div>
+
+<div class="d-byline">
+  Blaise Appolinary <a href="https://ca.linkedin.com/in/blaise-appolinary-038a42179" class="uri">https://ca.linkedin.com/in/blaise-appolinary-038a42179</a> 
+  
+,   Amogh Joshi  
+  
+,   Derrick Cheng  
+  
+,   Michael Hoefert  
+  
+<br/>2021-12-17
+</div>
+
+<div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#methods"><em>Methods</em></a></li>
+<li><a href="#exploratory-data-analysis"><em>Exploratory Data Analysis</em></a>
+<ul>
+<li><a href="#correlation-network-plot"><em>Correlation network plot</em></a></li>
+</ul></li>
+<li><a href="#modelling"><em>Modelling</em></a>
+<ul>
+<li><a href="#training-vs-testing-split">Training Vs Testing split</a>
+<ul>
+<li><a href="#summary-statistics-in-training-set">Summary Statistics in Training set</a></li>
+</ul></li>
+<li><a href="#training">Training</a></li>
+<li><a href="#finding-the-best-k-for-the-model">Finding the best K for the model</a></li>
+</ul></li>
+<li><a href="#discussion">Discussion</a></li>
+<li><a href="#refferences">Refferences</a></li>
+</ul>
+</nav>
+</div>
+<p><span style="color:black; font-size:16px"> Why did we choose these predictor variables over the numerous other variables in the data set? Our first objective was to eliminate those variables we felt did not contribute at all to the probability of default payments, such as sex. Next, we did some external research and found that of the remaining variables that we had access to in the dataset, age and education matched the best predictors of default probability from our external research (T. M. Alam et al., 2020). Thus, we will build our classification model on these two predictor models to determine the accuracy to which we can predict default probability. </span></p>
+<p><span style="color:black; font-size:16px"> The dataset we will be using has 25 variables and 30002 records. The data set includes the variables we mentioned above and others such as the bill amounts each client has as well as the payments each client has made towards those bill amounts. Education is classified with numbers 1 (Graduate School), 2 (University), 3 (High School), and 4 (Others). Age is simply the numeric value of the individual’s age. The default payment variable is represented by 1’s (Yes, did default) and 0’s (No, did not default). </span></p>
+<p><span style="color:black; font-size:16px"> We are interested in this question since credit card default is a real problem in the world, with credit card delinquency rates increasing by 0.180% year on year from 2017 to 2018, in Taiwan (CEIC, 2018). Using the models we create, we can determine the risk of lending credit to an individual with a high risk of default and therefore protect the creditors. </span></p>
+<h1 id="methods"><em>Methods</em></h1>
+<p>We will be including the following columns: Education, Age and Default payment next month. We will conduct our data analysis using classification. Our classification will be done by creating a test set and a training set. Following this, we will begin to create a model that will tune the K nearest neighbors value we should use and a recipe that uses the straight line (“rectangular”) method to predict classifications. Following this we will fold the training set (most likely 10 times) to allow for a relatively accurate prediction of the K nearest neighbors value we should use. Using this, we will move forward with applying our model to our test set and predicting the classifications. </span></p>
+<p><span style="color:black; font-size:16px"> We will create a bar chart that will depict the proportion of how many classifications were correctly predicted next to another bar that depicts the proportion of classifications that were incorrectly predicted. </span></p>
+<p><span style="font-weight:bold; color:black; font-size:16px">Expected outcomes and significance: </span> <span style="color:black; font-size:16px"> We expect to find that there is a correlation between the variables education, age and the classification of whether the individual defaulted. We expect to find that we will be able to get a fairly accurate accuracy. We define fairly accurate as an accuracy above 70%. Findings like this can allow credit card companies to apply higher late/default rates to customers who are more likely to default on payments based on our model and classification. Future questions would be: </span></p>
+<ul>
+<li>
+<span style="color:black; font-size:16px"> How can we make our predictions more accurate? </span>
+</li>
+<li>
+<span style="color:black; font-size:16px"> Is it ethical to change rates/interest on individuals who have been classified by a model to be more likely to default? </span>
+</li>
+</ul>
+<h1 id="exploratory-data-analysis"><em>Exploratory Data Analysis</em></h1>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>credit</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"credit_card.xls"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>default_payment_next_month<span class='op'>=</span> <span class='st'>"default payment next month"</span><span class='op'>)</span>
+<span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>  <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LIMIT_BAL"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["EDUCATION"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["MARRIAGE"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["PAY_0"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PAY_2"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PAY_3"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PAY_4"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PAY_5"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PAY_6"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT1"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT2"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT3"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT4"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT5"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT6"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT1"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT2"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT3"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT4"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT5"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT6"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["default_payment_next_month"],"name":[25],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"20000","3":"2","4":"2","5":"1","6":"24","7":"2","8":"2","9":"-1","10":"-1","11":"-2","12":"-2","13":"3913","14":"3102","15":"689","16":"0","17":"0","18":"0","19":"0","20":"689","21":"0","22":"0","23":"0","24":"0","25":"1"},{"1":"2","2":"120000","3":"2","4":"2","5":"2","6":"26","7":"-1","8":"2","9":"0","10":"0","11":"0","12":"2","13":"2682","14":"1725","15":"2682","16":"3272","17":"3455","18":"3261","19":"0","20":"1000","21":"1000","22":"1000","23":"0","24":"2000","25":"1"},{"1":"3","2":"90000","3":"2","4":"2","5":"2","6":"34","7":"0","8":"0","9":"0","10":"0","11":"0","12":"0","13":"29239","14":"14027","15":"13559","16":"14331","17":"14948","18":"15549","19":"1518","20":"1500","21":"1000","22":"1000","23":"1000","24":"5000","25":"0"},{"1":"4","2":"50000","3":"2","4":"2","5":"1","6":"37","7":"0","8":"0","9":"0","10":"0","11":"0","12":"0","13":"46990","14":"48233","15":"49291","16":"28314","17":"28959","18":"29547","19":"2000","20":"2019","21":"1200","22":"1100","23":"1069","24":"1000","25":"0"},{"1":"5","2":"50000","3":"1","4":"2","5":"1","6":"57","7":"-1","8":"0","9":"-1","10":"0","11":"0","12":"0","13":"8617","14":"5670","15":"35835","16":"20940","17":"19146","18":"19131","19":"2000","20":"36681","21":"10000","22":"9000","23":"689","24":"679","25":"0"},{"1":"6","2":"50000","3":"1","4":"1","5":"2","6":"37","7":"0","8":"0","9":"0","10":"0","11":"0","12":"0","13":"64400","14":"57069","15":"57608","16":"19394","17":"19619","18":"20024","19":"2500","20":"1815","21":"657","22":"1000","23":"1000","24":"800","25":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<h2 id="correlation-network-plot"><em>Correlation network plot</em></h2>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>new_data</span> <span class='op'>&lt;-</span> <span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>EDUCATION</span>, <span class='va'>AGE</span>, <span class='va'>default_payment_next_month</span><span class='op'>)</span>
+<span class='va'>cor</span> <span class='op'>&lt;-</span> <span class='fu'>corrr</span><span class='fu'>::</span><span class='fu'><a href='https://corrr.tidymodels.org/reference/correlate.html'>correlate</a></span><span class='op'>(</span><span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ID</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://corrr.tidymodels.org/reference/stretch.html'>stretch</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>graph_from_cor</span> <span class='op'>&lt;-</span> <span class='va'>cor</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>abs</a></span><span class='op'>(</span><span class='va'>r</span><span class='op'>)</span> <span class='op'>&gt;</span> <span class='fl'>0.3</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+  <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>graph_from_data_frame</a></span><span class='op'>(</span>directed <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'><a href='https://ggraph.data-imaginist.com/reference/ggraph.html'>ggraph</a></span><span class='op'>(</span><span class='va'>graph_from_cor</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/geom_edge_link.html'>geom_edge_link</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>+</span>
+  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/geom_node_point.html'>geom_node_point</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"brown"</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/geom_node_text.html'>geom_node_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>name</span><span class='op'>)</span>, repel <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/theme_graph.html'>theme_graph</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Correlations Network Plot"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
+<img src="card-default-prediction_files/figure-html5/unnamed-chunk-1-1.png" alt="Correlation plot between different variables" width="624" />
+<p class="caption">
+Figure 1: Correlation plot between different variables
+</p>
+</div>
+</div>
+<h1 id="modelling"><em>Modelling</em></h1>
+<h2 id="training-vs-testing-split">Training Vs Testing split</h2>
+<p><span style="color:black; font-size:16px"> Once we read the file into our Jupyter Notebook we made sure that the data was clean. To make sure it was clean we double checked that there were no N/A values, there were none. We identified our variable that would be our classifier for our prediction and converted it into a factor to ensure we would be able to classify it. The next step was to split the large data set into our training and test set. We did this because we want to make sure that we do not use the testing dataset at all until the very end once we have created our models, recipes and found the most accurate K nearest neighbors value. We split the data sets as 75% training and 25% training. We set the strata equal to our classification variable, “default_payment_next_month”. Next, we finalized the split of the data into two different data sets; credit_train and credit_test. </span></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>tidied_credit_card</span> <span class='op'>&lt;-</span> <span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
+                    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>EDUCATION</span>, <span class='va'>AGE</span>, <span class='va'>default_payment_next_month</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+                    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>default_payment_next_month <span class='op'>=</span> <span class='fu'><a href='https://forcats.tidyverse.org/reference/as_factor.html'>as_factor</a></span><span class='op'>(</span><span class='va'>default_payment_next_month</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+                    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>EDUCATION</span> <span class='op'>==</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>4</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>credit_split</span> <span class='op'>&lt;-</span> <span class='fu'>initial_split</span><span class='op'>(</span><span class='va'>tidied_credit_card</span>, prop <span class='op'>=</span> <span class='fl'>0.75</span>, strata <span class='op'>=</span> <span class='va'>default_payment_next_month</span><span class='op'>)</span>
+<span class='va'>credit_train</span> <span class='op'>&lt;-</span> <span class='fu'>training</span><span class='op'>(</span><span class='va'>credit_split</span><span class='op'>)</span>
+<span class='va'>credit_test</span> <span class='op'>&lt;-</span> <span class='fu'>testing</span><span class='op'>(</span><span class='va'>credit_split</span><span class='op'>)</span>
+<span class='va'>credit_train</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='va'>head</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kbl.html'>kbl</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
+  <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kable_classic.html'>kable_paper</a></span><span class='op'>(</span><span class='st'>"hover"</span>,full_width<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<table class=" lightable-paper lightable-hover" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+EDUCATION
+</th>
+<th style="text-align:right;">
+AGE
+</th>
+<th style="text-align:left;">
+default_payment_next_month
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:left;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="summary-statistics-in-training-set">Summary Statistics in Training set</h3>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://docs.ropensci.org/skimr/reference/skim.html'>skim_without_charts</a></span><span class='op'>(</span><span class='va'>credit_train</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<table style="width: auto;" class="table table-condensed">
+<caption>
+<span id="tab:unnamed-chunk-2">Table 1: </span>Data summary
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Name
+</td>
+<td style="text-align:left;">
+credit_train
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of rows
+</td>
+<td style="text-align:left;">
+5523
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Number of columns
+</td>
+<td style="text-align:left;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+_______________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Column type frequency:
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+factor
+</td>
+<td style="text-align:left;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+numeric
+</td>
+<td style="text-align:left;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+________________________
+</td>
+<td style="text-align:left;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Group variables
+</td>
+<td style="text-align:left;">
+None
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: factor</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:left;">
+ordered
+</th>
+<th style="text-align:right;">
+n_unique
+</th>
+<th style="text-align:left;">
+top_counts
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+default_payment_next_month
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+0: 4305, 1: 1218
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+skim_variable
+</th>
+<th style="text-align:right;">
+n_missing
+</th>
+<th style="text-align:right;">
+complete_rate
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+p0
+</th>
+<th style="text-align:right;">
+p25
+</th>
+<th style="text-align:right;">
+p50
+</th>
+<th style="text-align:right;">
+p75
+</th>
+<th style="text-align:right;">
+p100
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EDUCATION
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1.81
+</td>
+<td style="text-align:right;">
+0.71
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AGE
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+35.47
+</td>
+<td style="text-align:right;">
+9.16
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+75
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span style="color:black; font-size:16px"> In order to get a sense for the training dataset and to understand it more thoroughly, we did some preliminary data analysis. We firstly noticed that the dataset had more choices for education than what was stated on the website, so rather than there just being 4 choices, there were 6. Therefore, since we did not know what the extra choices referred to (and with the help of a TA who advised us to do the same), we filtered out said choices. The impact of this filtering was very minor since it only affected about 20 data samples. </span></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>credit_summarize</span> <span class='op'>&lt;-</span> <span class='va'>credit_train</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+                    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>EDUCATION</span>, <span class='va'>AGE</span>, <span class='va'>default_payment_next_month</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+                    <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarize</a></span><span class='op'>(</span>n <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>credit_summarize</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>     EDUCATION AGE default_payment_next_month  n
+  1:         1  21                          0  2
+  2:         1  22                          0 18
+  3:         1  22                          1  6
+  4:         1  23                          0 47
+  5:         1  23                          1 12
+ ---                                            
+281:         4  44                          1  1
+282:         4  48                          0  1
+283:         4  49                          0  1
+284:         4  50                          0  1
+285:         4  52                          0  1</code></pre>
+</div>
+<span style="color:black; font-size:16px"> Next, we graphed the filtered data to understand how the data was balanced. We wanted to see if there was an obvious correlation between the variables, and as such, grouped the observations and graphed them using a barchart. We did separate graphs for education and age in order to isolate so we can gain a better understanding of how the variable impacts risk of credit default. </span>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>credit_education_graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>credit_summarize</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>EDUCATION</span>, y <span class='op'>=</span> <span class='va'>n</span>, fill <span class='op'>=</span> <span class='va'>default_payment_next_month</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span>
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Education"</span>, y <span class='op'>=</span> <span class='st'>"Default Payment"</span>, title <span class='op'>=</span> <span class='st'>"Education VS Default Payment"</span>, fill <span class='op'>=</span> <span class='st'>"Defaulted on Payment"</span><span class='op'>)</span> <span class='op'>+</span>
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>credit_education_graph</span>
+</code></pre>
+</div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
+<img src="card-default-prediction_files/figure-html5/unnamed-chunk-4-1.png" alt=" Distrubution of Default Payment for Education. This graph shows the distribution between each education level and the number of default payments 1 (Yes) and 0 (No) in the training data set. The graph shows that Education levels 2 and 3 have the highest default rate." width="624" />
+<p class="caption">
+Figure 2:  Distrubution of Default Payment for Education. This graph shows the distribution between each education level and the number of default payments 1 (Yes) and 0 (No) in the training data set. The graph shows that Education levels 2 and 3 have the highest default rate.
+</p>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>credit_sex_graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>credit_summarize</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>AGE</span>, y <span class='op'>=</span> <span class='va'>n</span>, fill <span class='op'>=</span> <span class='va'>default_payment_next_month</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span>
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Age"</span>, y <span class='op'>=</span> <span class='st'>"Default Payment"</span>, title <span class='op'>=</span> <span class='st'>"Default Payment vs Age"</span>, fill <span class='op'>=</span> <span class='st'>"Defaulted on Payment"</span><span class='op'>)</span> <span class='op'>+</span>
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>credit_sex_graph</span>
+</code></pre>
+</div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
+<img src="card-default-prediction_files/figure-html5/unnamed-chunk-5-1.png" alt="Figure 2: Distrubution of Default Payment for Age. This graph shows the distribution between each age and the number of default payments 1 (Yes) and 0 (No) in the training data set. The graph shows that older ages around 60+ have a higher rate of default payment, which could be attributed to smaller amounts of data points from the age range. " width="624" />
+<p class="caption">
+Figure 3: Figure 2: Distrubution of Default Payment for Age. This graph shows the distribution between each age and the number of default payments 1 (Yes) and 0 (No) in the training data set. The graph shows that older ages around 60+ have a higher rate of default payment, which could be attributed to smaller amounts of data points from the age range.
+</p>
+</div>
+</div>
+<h2 id="training">Training</h2>
+<p>The next step of our analysis was building our recipe, model and workflow. For our model we used the rectangular method of prediction and tuned our neighbors function. We used tune instead of placing an arbitrary number because we are trying to determine, with the tune function, what the most accurate K nearest neighbors value is. Next, for our recipe, we identified the variable we are trying to predict <code>(default_payment_next_month)</code> and our predictor variables (EDUCATION and AGE). We are building the recipe on our training data set, because as we previously mentioned, we do not want to touch the test set at all until the final analysis/prediction/classification. For our recipe, we also scaled and centered all of our predictor variables. Following the recipe, we created our vfold function. We created the vfold function so that we can get a better K nearest neighbors value estimate by splitting the data multiple ways and averaging the results. We decided to fold the data set 5 times, anymore than this and we found we were waiting for significant amounts of time for the Jupyter Notebook to run. To effectively use our vfold function, we decided to create a tible with the sequences 1 through 200 for K nearest values 1 through 200. We will use this in our workflow to find the most accurate K nearest neighbors value. Lastly, we were putting the model, recipe and vfold functions all together into our workflow. We added the recipe, then the model. Following this, we added a <code>tune_grid</code> function which included our vfold function as well as the grid tibble we previously mentioned. To conclude our workflow, we are collecting the metrics with; <code>collect_metrics()</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>knn_spec</span> <span class='op'>&lt;-</span> <span class='fu'>nearest_neighbor</span><span class='op'>(</span>weight_func <span class='op'>=</span> <span class='st'>"rectangular"</span>, neighbors <span class='op'>=</span> <span class='fu'>tune</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"kknn"</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>set_mode</span><span class='op'>(</span><span class='st'>"classification"</span><span class='op'>)</span>
+<span class='va'>credit_recipe</span> <span class='op'>&lt;-</span> <span class='fu'>recipe</span><span class='op'>(</span><span class='va'>default_payment_next_month</span> <span class='op'>~</span> <span class='va'>EDUCATION</span> <span class='op'>+</span> <span class='va'>AGE</span>, data <span class='op'>=</span> <span class='va'>credit_train</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+                <span class='fu'>step_scale</span><span class='op'>(</span><span class='fu'>all_predictors</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+                <span class='fu'>step_center</span><span class='op'>(</span><span class='fu'>all_predictors</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>credit_vfold</span> <span class='op'>&lt;-</span> <span class='fu'>vfold_cv</span><span class='op'>(</span><span class='va'>credit_train</span>, v <span class='op'>=</span> <span class='fl'>5</span>, strata <span class='op'>=</span> <span class='va'>default_payment_next_month</span><span class='op'>)</span>
+<span class='va'>gridvals</span> <span class='op'>=</span> <span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>neighbors <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>50</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='va'>credit_fit</span> <span class='op'>&lt;-</span> <span class='fu'>workflow</span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>add_recipe</span><span class='op'>(</span><span class='va'>credit_recipe</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>add_model</span><span class='op'>(</span><span class='va'>knn_spec</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>tune_grid</span><span class='op'>(</span>resamples <span class='op'>=</span> <span class='va'>credit_vfold</span>, grid <span class='op'>=</span> <span class='fl'>100</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+        <span class='fu'>collect_metrics</span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>credit_fit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a></span><span class='op'>(</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<pre><code>    neighbors  .metric .estimator      mean n      std_err
+ 1:         1 accuracy     binary 0.7778381 5 0.0010189829
+ 2:         1  roc_auc     binary 0.5013076 5 0.0014980903
+ 3:         2 accuracy     binary 0.7785622 5 0.0004796293
+ 4:         2  roc_auc     binary 0.5011568 5 0.0015609007
+ 5:         3 accuracy     binary 0.7782004 5 0.0011382331
+ 6:         3  roc_auc     binary 0.5031854 5 0.0005344724
+ 7:         4 accuracy     binary 0.7780192 5 0.0011214818
+ 8:         4  roc_auc     binary 0.5044075 5 0.0015017582
+ 9:         5 accuracy     binary 0.7771139 5 0.0010459038
+10:         5  roc_auc     binary 0.5061534 5 0.0012881664
+11:         6 accuracy     binary 0.7780191 5 0.0010543830
+12:         6  roc_auc     binary 0.5039148 5 0.0010771440
+13:         7 accuracy     binary 0.7772949 5 0.0010336610
+14:         7  roc_auc     binary 0.5049822 5 0.0039082790
+15:         8 accuracy     binary 0.7778384 5 0.0007697558
+16:         8  roc_auc     binary 0.5031737 5 0.0016971696
+17:         9 accuracy     binary 0.7782000 5 0.0007712707
+18:         9  roc_auc     binary 0.5020524 5 0.0026117206
+19:        10 accuracy     binary 0.7782000 5 0.0007712707
+20:        10  roc_auc     binary 0.5042900 5 0.0018335397
+21:        11 accuracy     binary 0.7787437 5 0.0005887663
+22:        11  roc_auc     binary 0.5074889 5 0.0043046895
+23:        12 accuracy     binary 0.7789247 5 0.0005055621
+24:        12  roc_auc     binary 0.5098753 5 0.0028675090
+25:        13 accuracy     binary 0.7791057 5 0.0002574148
+26:        13  roc_auc     binary 0.5093868 5 0.0040229852
+27:        14 accuracy     binary 0.7791057 5 0.0002574148
+28:        14  roc_auc     binary 0.5106601 5 0.0029876314
+29:        15 accuracy     binary 0.7794678 5 0.0001728811
+30:        15  roc_auc     binary 0.5136957 5 0.0031531812
+    neighbors  .metric .estimator      mean n      std_err
+                  .config
+ 1: Preprocessor1_Model01
+ 2: Preprocessor1_Model01
+ 3: Preprocessor1_Model02
+ 4: Preprocessor1_Model02
+ 5: Preprocessor1_Model03
+ 6: Preprocessor1_Model03
+ 7: Preprocessor1_Model04
+ 8: Preprocessor1_Model04
+ 9: Preprocessor1_Model05
+10: Preprocessor1_Model05
+11: Preprocessor1_Model06
+12: Preprocessor1_Model06
+13: Preprocessor1_Model07
+14: Preprocessor1_Model07
+15: Preprocessor1_Model08
+16: Preprocessor1_Model08
+17: Preprocessor1_Model09
+18: Preprocessor1_Model09
+19: Preprocessor1_Model10
+20: Preprocessor1_Model10
+21: Preprocessor1_Model11
+22: Preprocessor1_Model11
+23: Preprocessor1_Model12
+24: Preprocessor1_Model12
+25: Preprocessor1_Model13
+26: Preprocessor1_Model13
+27: Preprocessor1_Model14
+28: Preprocessor1_Model14
+29: Preprocessor1_Model15
+30: Preprocessor1_Model15
+                  .config</code></pre>
+</div>
+<h2 id="finding-the-best-k-for-the-model">Finding the best K for the model</h2>
+<p>After graphing our findings to find the best K value, we decided on the best K as 15. We chose the K value with the highest accuracy.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>accuracies</span> <span class='op'>&lt;-</span> <span class='va'>credit_fit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
+      <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>.metric</span> <span class='op'>==</span> <span class='st'>"accuracy"</span><span class='op'>)</span>
+
+<span class='va'>accuracy_versus_k</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>accuracies</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>neighbors</span>, y <span class='op'>=</span> <span class='va'>mean</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Number of Neighbors"</span>, y <span class='op'>=</span> <span class='st'>"Accuracy Estimate"</span>, title <span class='op'>=</span> <span class='st'>"K Vs Accuracy"</span><span class='op'>)</span> <span class='op'>+</span>
+      <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>20</span>, by <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+        <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>accuracy_versus_k</span>
+</code></pre>
+</div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
+<img src="card-default-prediction_files/figure-html5/unnamed-chunk-7-1.png" alt="The graph shows that the K with the highest accuracy estimate is 15, which is the K we chose. Although we tuned with grid = 100, the K values only went up to 15. We asked a TA on how to fix this, but they didn't know so we stuck with the choice of K = 15." width="624" />
+<p class="caption">
+Figure 4: The graph shows that the K with the highest accuracy estimate is 15, which is the K we chose. Although we tuned with grid = 100, the K values only went up to 15. We asked a TA on how to fix this, but they didn’t know so we stuck with the choice of K = 15.
+</p>
+</div>
+</div>
+<p><span style="color:black; font-size:16px"> Following this, we took our new K value and built out our new model spec with the K value set to 15. We used the same recipe as before and then added the recipe and new model to a workflow and fit the training data. Next, we began predicting our test set with this final model and binded the columns so that we would be able to see the predicted class and the true class of the test data set. Next we made a confusion matrix which included the true classifier values as well as the predicted classifier values from our dataset. With these predictions we were able to predict the accuracy of our model which was 77.9%. </span></p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>knn_final</span> <span class='op'>&lt;-</span> <span class='fu'>nearest_neighbor</span><span class='op'>(</span>weight_func <span class='op'>=</span> <span class='st'>"rectangular"</span>, neighbors <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"kknn"</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>set_mode</span><span class='op'>(</span><span class='st'>"classification"</span><span class='op'>)</span>
+<span class='va'>credit_final</span> <span class='op'>=</span> <span class='fu'>workflow</span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>add_recipe</span><span class='op'>(</span><span class='va'>credit_recipe</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>add_model</span><span class='op'>(</span><span class='va'>knn_final</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'>fit</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>credit_train</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
+<span class='va'>credit_predictions</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>credit_final</span>, <span class='va'>credit_test</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+      <span class='fu'><a href='https://dplyr.tidyverse.org/reference/bind.html'>bind_cols</a></span><span class='op'>(</span><span class='va'>credit_test</span><span class='op'>)</span>
+<span class='va'>credit_metrics</span> <span class='op'>&lt;-</span> <span class='va'>credit_predictions</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+        <span class='fu'>metrics</span><span class='op'>(</span>truth <span class='op'>=</span> <span class='va'>default_payment_next_month</span>, estimate <span class='op'>=</span> <span class='va'>.pred_class</span><span class='op'>)</span> 
+<span class='va'>credit_conf_mat</span> <span class='op'>&lt;-</span> <span class='va'>credit_predictions</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
+        <span class='fu'>conf_mat</span><span class='op'>(</span>truth <span class='op'>=</span> <span class='va'>default_payment_next_month</span>, estimate <span class='op'>=</span> <span class='va'>.pred_class</span><span class='op'>)</span> 
+<span class='co'>#credit_predictions</span>
+<span class='co'>#credit_metrics</span>
+<span class='va'>credit_conf_mat</span> 
+</code></pre>
+</div>
+</details>
+<pre><code>          Truth
+Prediction    0    1
+         0 1434  406
+         1    2    0</code></pre>
+</div>
+<h4 id="accuracy"><em>Accuracy</em></h4>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>accuracy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='va'>credit_metrics</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>accuracy</span>
+</code></pre>
+</div>
+</details>
+<pre><code>[1] 0.7785016</code></pre>
+</div>
+<h4 id="metric-confusion-matrix">Metric confusion matrix</h4>
+<p>The prediction, metrics, and confusion matrix’s results on the testing set, producing an accuracy of about 78%.</p>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ctable</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>as.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1436</span>, <span class='fl'>406</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/fourfoldplot.html'>fourfoldplot</a></span><span class='op'>(</span><span class='va'>ctable</span>, color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#CC6666"</span>, <span class='st'>"#99CC99"</span><span class='op'>)</span>,
+             conf.level <span class='op'>=</span> <span class='fl'>0</span>, margin <span class='op'>=</span> <span class='fl'>1</span>, main <span class='op'>=</span> <span class='st'>"Confusion Matrix"</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
+<img src="card-default-prediction_files/figure-html5/unnamed-chunk-11-1.png" alt="Confusion Matrix Graph. This graph shows the finding of our confusion matrix, which proportionally shows correctly classified vs incorrectly classified." width="624" />
+<p class="caption">
+Figure 5: Confusion Matrix Graph. This graph shows the finding of our confusion matrix, which proportionally shows correctly classified vs incorrectly classified.
+</p>
+</div>
+</div>
+<h4 id="accuracy-pie-chart">Accuracy Pie Chart</h4>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+  group <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Percent Correct"</span>, <span class='st'>"Percent Incorrect"</span><span class='op'>)</span>,
+  value <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>accuracy</span> <span class='op'>*</span> <span class='fl'>100</span>, <span class='fl'>100</span> <span class='op'>-</span> <span class='op'>(</span><span class='va'>accuracy</span> <span class='op'>*</span> <span class='fl'>100</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='op'>)</span>
+<span class='va'>bp</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>df</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>""</span>, y<span class='op'>=</span><span class='va'>value</span>, fill<span class='op'>=</span><span class='va'>group</span><span class='op'>)</span><span class='op'>)</span><span class='op'>+</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>width <span class='op'>=</span> <span class='fl'>1</span>, stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ggtitle</a></span><span class='op'>(</span><span class='st'>"Accuracy Pie Chart"</span><span class='op'>)</span> <span class='op'>+</span>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>fill <span class='op'>=</span> <span class='st'>"Percent Correct and Incorrect"</span><span class='op'>)</span>
+
+<span class='va'>pie</span> <span class='op'>&lt;-</span> <span class='va'>bp</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_polar.html'>coord_polar</a></span><span class='op'>(</span><span class='st'>"y"</span>, start<span class='op'>=</span><span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>pie</span> <span class='op'>&lt;-</span> <span class='va'>pie</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_fill_manual</a></span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#99CC99"</span>, <span class='st'>"#CC6666"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>pie</span>
+</code></pre>
+</div>
+</details>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
+<img src="card-default-prediction_files/figure-html5/unnamed-chunk-12-1.png" alt=" Summary Pie Chart Of Our Finding. This pie chart summarizes the accuracy of our findings, which is correct about 78% of the time." width="624" />
+<p class="caption">
+Figure 6:  Summary Pie Chart Of Our Finding. This pie chart summarizes the accuracy of our findings, which is correct about 78% of the time.
+</p>
+</div>
+</div>
+<h1 id="discussion">Discussion</h1>
+<p>​ <span style="color:black; font-size:16px"> Our final accuracy from our tuned model was 77.9%. From the final graphs that we plotted, we found that our classification analysis had a fairly high accuracy with the predictor values that we chose. Although the accuracy is fairly high, there is most definitely room for improvement. If you reference the pie chart, on average, our model correctly predicts the likelihood of credit card default approximately 3 out 4 times. With this fairly high accuracy, it is safe to say that the education level an individual has and their age does play a role in their likelihood to default. </span> ​ <span style="color:black; font-size:16px"> The accuracy we achieved from our model exceeded what was predicted; as stated in our introduction, we thought that the model would be about 70% accurate, however, it was closer to a 77.9% accuracy rate. Since the accuracy was higher than 50% (based on randomly selecting credit risk), it can be confidently stated that there is a correlation between an individual’s education and age, and their credit default risk. </span> ​ <span style="color:black; font-size:16px"> The impact of the findings within this report are of great consequence to the financial industry. Given that our model was able to predict credit card default fairly accurately, banks and other financial institutions can both use our model, and build on it to improve it, to further mitigate their risk. As lending money to individuals has its inherent risk, it is absolutely imperative that these financial institutions mitigate as much risk as possible to ensure secure cash flows and revenue from their credit card business. </span> ​ <span style="color:black; font-size:16px"> Due to the onset of COVID-19, the economic realities are much different than in 2016, the year in which the data set was donated. Due to this, a potential further question that would be very interesting to investigate is if the created model is still relevant today? Since unemployment rates at the height of lockdowns was about 4.1%, the highest it has been in over 6 years (Reuters, 2020). While we have not shown that credit card default and unemployment are correlated, the two variables have been linked in other articles (Bai, 2016). As such, investigating if the model holds in times of economic depression would be a question to investigate in the future. </span></p>
+<p><span style="color:black; font-size:16px"> However, one of the questions that we feel is most critical in investigating is whether or not using predictive modelling to determine the risk of an individual in defaulting is ethical. The availability of credit has been linked to increased economic output, and the ability to achieve a higher quality of life (Proctor &amp; Anand, 2017, 322-346). As such, if the predictive model is not entirely accurate or has inherent biases present (such as giving different risk scores for different races, sex, etc.), it could lead to a negative feedback loop for individuals already experiencing economic hardship with no escape from poverty through credit. As such, more research needs to be conducted into the ethical realities of using a model to judge a person’s credit risk.</span></p>
+<h1 id="refferences">Refferences</h1>
+<p>​ <span style="color:black; font-size:16px"> Alam, Talha Mahboob, et al. “An Investigation of Credit Card Default Prediction in the Imbalanced Datasets.” IEEE Xplore, IEEE, 26 Oct. 2020, ieeexplore.ieee.org/document/9239944?fbclid=IwAR3zMjKdc4EdLV5A4r5RRW_BFy1VnOY9QQewm8qRdsYTlPFBCMurTpU6DA0. </span> ​ <span style="color:black; font-size:16px"> Bai, H. (2016). Unemployment and Credit Risk. Supply and Demand eJournal. <a href="https://www.semanticscholar.org/paper/Unemployment-and-Credit-Risk-Bai/375a7d56701fe8ec018feb308669e7baa9322cbd#paper-header" class="uri">https://www.semanticscholar.org/paper/Unemployment-and-Credit-Risk-Bai/375a7d56701fe8ec018feb308669e7baa9322cbd#paper-header</a> CEIC. (2018, May). Taiwan: Credit CARD STATISTICS: CEIC. Retrieved March 12, 2021, from <a href="https://www.ceicdata.com/en/taiwan/credit-card-statistics" class="uri">https://www.ceicdata.com/en/taiwan/credit-card-statistics</a> </span> ​ <span style="color:black; font-size:16px"> Proctor, J., &amp; Anand, P. (2017, September 6). Is credit associated with a higher quality of life? A capability approach. Progress in Development Studies, 17(4), 322 - 346. <a href="https://journals-sagepub-com.ezproxy.library.ubc.ca/doi/full/10.1177/1464993417716359?utm_source=summon&amp;utm_medium=discovery-provider" class="uri">https://journals-sagepub-com.ezproxy.library.ubc.ca/doi/full/10.1177/1464993417716359?utm_source=summon&amp;utm_medium=discovery-provider</a> </span> ​ <span style="color:black; font-size:16px"> Reuters Staff. (2020, May 22). Taiwan jobless rate spikes to six year high on virus impact. Reuters. <a href="https://www.reuters.com/article/healthcoronavirus-taiwan-unemployment-idUSL4N2C90Z4" class="uri">https://www.reuters.com/article/healthcoronavirus-taiwan-unemployment-idUSL4N2C90Z4</a> </span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
