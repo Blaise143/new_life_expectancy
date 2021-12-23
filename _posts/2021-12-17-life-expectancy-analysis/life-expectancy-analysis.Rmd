@@ -11,8 +11,6 @@ output:
     self_contained: false
     toc: yes
     toc_float: yes
-    code_folding: yes
-    highlight: monochrome
     df_print: kable
 ---
 

@@ -46,32 +46,50 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { font-weight: bold; } /* Alert */
-code span.an { font-style: italic; } /* Annotation */
-code span.cf { font-weight: bold; } /* ControlFlow */
-code span.co { font-style: italic; } /* Comment */
-code span.cv { font-style: italic; } /* CommentVar */
-code span.do { font-style: italic; } /* Documentation */
-code span.dt { text-decoration: underline; } /* DataType */
-code span.er { font-weight: bold; } /* Error */
-code span.in { font-style: italic; } /* Information */
-code span.kw { font-weight: bold; } /* Keyword */
-code span.pp { font-weight: bold; } /* Preprocessor */
-code span.wa { font-style: italic; } /* Warning */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
 
   <!--radix_placeholder_meta_tags-->
 <title>My Portfolio: Card Default Visualization and Prediction</title>
 
-<meta property="description" itemprop="description" content="The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+<meta property="description" itemprop="description" content="The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
 
 
 <!--  https://schema.org/Article -->
@@ -85,20 +103,20 @@ code span.wa { font-style: italic; } /* Warning */
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="My Portfolio: Card Default Visualization and Prediction"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+<meta property="og:description" content="The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="My Portfolio"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="My Portfolio: Card Default Visualization and Prediction"/>
-<meta property="twitter:description" content="The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+<meta property="twitter:description" content="The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Card Default Visualization and Prediction"]},{"type":"character","attributes":{},"value":["The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\""]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://ca.linkedin.com/in/blaise-appolinary-038a42179"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amogh Joshi"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Derrick Cheng"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Michael Hoefert"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_float","code_folding","highlight","df_print"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["monochrome"]},{"type":"character","attributes":{},"value":["kable"]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Card Default Visualization and Prediction"]},{"type":"character","attributes":{},"value":["The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\""]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://ca.linkedin.com/in/blaise-appolinary-038a42179"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amogh Joshi"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Derrick Cheng"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Michael Hoefert"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2055,7 +2073,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Card Default Visualization and Prediction","description":"The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\"","authors":[{"author":"Blaise Appolinary","authorURL":"https://ca.linkedin.com/in/blaise-appolinary-038a42179","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Amogh Joshi","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Derrick Cheng","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Michael Hoefert","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000-08:00","citationText":"Appolinary, et al., 2021"}
+{"title":"Card Default Visualization and Prediction","description":"The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\"","authors":[{"author":"Blaise Appolinary","authorURL":"https://ca.linkedin.com/in/blaise-appolinary-038a42179","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Amogh Joshi","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Derrick Cheng","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Michael Hoefert","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000-08:00","citationText":"Appolinary, et al., 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2081,7 +2099,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h1>Card Default Visualization and Prediction</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>The data set we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: “How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?”</p></p>
+<p><p>The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: “How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?”</p></p>
 </div>
 
 <div class="d-byline">
@@ -2137,16 +2155,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </ul>
 <h1 id="exploratory-data-analysis"><em>Exploratory Data Analysis</em></h1>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>credit</span><span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"credit_card.xls"</span>, skip <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>default_payment_next_month<span class='op'>=</span> <span class='st'>"default payment next month"</span><span class='op'>)</span>
 <span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>  <span class='fu'>rmarkdown</span><span class='fu'>::</span><span class='fu'><a href='https://pkgs.rstudio.com/rmarkdown/reference/paged_table.html'>paged_table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["ID"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["LIMIT_BAL"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["SEX"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["EDUCATION"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["MARRIAGE"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["AGE"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["PAY_0"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["PAY_2"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["PAY_3"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["PAY_4"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["PAY_5"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["PAY_6"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT1"],"name":[13],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT2"],"name":[14],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT3"],"name":[15],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT4"],"name":[16],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT5"],"name":[17],"type":["dbl"],"align":["right"]},{"label":["BILL_AMT6"],"name":[18],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT1"],"name":[19],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT2"],"name":[20],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT3"],"name":[21],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT4"],"name":[22],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT5"],"name":[23],"type":["dbl"],"align":["right"]},{"label":["PAY_AMT6"],"name":[24],"type":["dbl"],"align":["right"]},{"label":["default_payment_next_month"],"name":[25],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"20000","3":"2","4":"2","5":"1","6":"24","7":"2","8":"2","9":"-1","10":"-1","11":"-2","12":"-2","13":"3913","14":"3102","15":"689","16":"0","17":"0","18":"0","19":"0","20":"689","21":"0","22":"0","23":"0","24":"0","25":"1"},{"1":"2","2":"120000","3":"2","4":"2","5":"2","6":"26","7":"-1","8":"2","9":"0","10":"0","11":"0","12":"2","13":"2682","14":"1725","15":"2682","16":"3272","17":"3455","18":"3261","19":"0","20":"1000","21":"1000","22":"1000","23":"0","24":"2000","25":"1"},{"1":"3","2":"90000","3":"2","4":"2","5":"2","6":"34","7":"0","8":"0","9":"0","10":"0","11":"0","12":"0","13":"29239","14":"14027","15":"13559","16":"14331","17":"14948","18":"15549","19":"1518","20":"1500","21":"1000","22":"1000","23":"1000","24":"5000","25":"0"},{"1":"4","2":"50000","3":"2","4":"2","5":"1","6":"37","7":"0","8":"0","9":"0","10":"0","11":"0","12":"0","13":"46990","14":"48233","15":"49291","16":"28314","17":"28959","18":"29547","19":"2000","20":"2019","21":"1200","22":"1100","23":"1069","24":"1000","25":"0"},{"1":"5","2":"50000","3":"1","4":"2","5":"1","6":"57","7":"-1","8":"0","9":"-1","10":"0","11":"0","12":"0","13":"8617","14":"5670","15":"35835","16":"20940","17":"19146","18":"19131","19":"2000","20":"36681","21":"10000","22":"9000","23":"689","24":"679","25":"0"},{"1":"6","2":"50000","3":"1","4":"1","5":"2","6":"37","7":"0","8":"0","9":"0","10":"0","11":"0","12":"0","13":"64400","14":"57069","15":"57608","16":"19394","17":"19619","18":"20024","19":"2500","20":"1815","21":"657","22":"1000","23":"1000","24":"800","25":"0"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -2155,10 +2168,6 @@ Show code
 </div>
 <h2 id="correlation-network-plot"><em>Correlation network plot</em></h2>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>new_data</span> <span class='op'>&lt;-</span> <span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>EDUCATION</span>, <span class='va'>AGE</span>, <span class='va'>default_payment_next_month</span><span class='op'>)</span>
 <span class='va'>cor</span> <span class='op'>&lt;-</span> <span class='fu'>corrr</span><span class='fu'>::</span><span class='fu'><a href='https://corrr.tidymodels.org/reference/correlate.html'>correlate</a></span><span class='op'>(</span><span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>-</span><span class='va'>ID</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
@@ -2173,7 +2182,6 @@ Show code
   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Correlations Network Plot"</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="card-default-prediction_files/figure-html5/unnamed-chunk-1-1.png" alt="Correlation plot between different variables" width="624" />
 <p class="caption">
@@ -2185,10 +2193,6 @@ Figure 1: Correlation plot between different variables
 <h2 id="training-vs-testing-split">Training Vs Testing split</h2>
 <p><span style="color:black; font-size:16px"> Once we read the file into our Jupyter Notebook we made sure that the data was clean. To make sure it was clean we double checked that there were no N/A values, there were none. We identified our variable that would be our classifier for our prediction and converted it into a factor to ensure we would be able to classify it. The next step was to split the large data set into our training and test set. We did this because we want to make sure that we do not use the testing dataset at all until the very end once we have created our models, recipes and found the most accurate K nearest neighbors value. We split the data sets as 75% training and 25% training. We set the strata equal to our classification variable, “default_payment_next_month”. Next, we finalized the split of the data into two different data sets; credit_train and credit_test. </span></p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 <span class='va'>tidied_credit_card</span> <span class='op'>&lt;-</span> <span class='va'>credit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
@@ -2202,7 +2206,6 @@ Show code
   <span class='fu'><a href='https://rdrr.io/pkg/kableExtra/man/kable_classic.html'>kable_paper</a></span><span class='op'>(</span><span class='st'>"hover"</span>,full_width<span class='op'>=</span><span class='cn'>F</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <table class=" lightable-paper lightable-hover" style="font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2289,15 +2292,10 @@ default_payment_next_month
 </div>
 <h3 id="summary-statistics-in-training-set">Summary Statistics in Training set</h3>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://docs.ropensci.org/skimr/reference/skim.html'>skim_without_charts</a></span><span class='op'>(</span><span class='va'>credit_train</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <table style="width: auto;" class="table table-condensed">
 <caption>
 <span id="tab:unnamed-chunk-2">Table 1: </span>Data summary
@@ -2535,10 +2533,6 @@ AGE
 </div>
 <p><span style="color:black; font-size:16px"> In order to get a sense for the training dataset and to understand it more thoroughly, we did some preliminary data analysis. We firstly noticed that the dataset had more choices for education than what was stated on the website, so rather than there just being 4 choices, there were 6. Therefore, since we did not know what the extra choices referred to (and with the help of a TA who advised us to do the same), we filtered out said choices. The impact of this filtering was very minor since it only affected about 20 data samples. </span></p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>credit_summarize</span> <span class='op'>&lt;-</span> <span class='va'>credit_train</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
                     <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>EDUCATION</span>, <span class='va'>AGE</span>, <span class='va'>default_payment_next_month</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
@@ -2546,7 +2540,6 @@ Show code
 <span class='va'>credit_summarize</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <pre><code>     EDUCATION AGE default_payment_next_month  n
   1:         1  21                          0  2
   2:         1  22                          0 18
@@ -2562,10 +2555,6 @@ Show code
 </div>
 <span style="color:black; font-size:16px"> Next, we graphed the filtered data to understand how the data was balanced. We wanted to see if there was an obvious correlation between the variables, and as such, grouped the observations and graphed them using a barchart. We did separate graphs for education and age in order to isolate so we can gain a better understanding of how the variable impacts risk of credit default. </span>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>credit_education_graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>credit_summarize</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>EDUCATION</span>, y <span class='op'>=</span> <span class='va'>n</span>, fill <span class='op'>=</span> <span class='va'>default_payment_next_month</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span>, position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2574,7 +2563,6 @@ Show code
 <span class='va'>credit_education_graph</span>
 </code></pre>
 </div>
-</details>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-4"></span>
 <img src="card-default-prediction_files/figure-html5/unnamed-chunk-4-1.png" alt=" Distrubution of Default Payment for Education. This graph shows the distribution between each education level and the number of default payments 1 (Yes) and 0 (No) in the training data set. The graph shows that Education levels 2 and 3 have the highest default rate." width="624" />
 <p class="caption">
@@ -2583,10 +2571,6 @@ Figure 2:  Distrubution of Default Payment for Education. This graph shows the d
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 <span class='va'>credit_sex_graph</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>credit_summarize</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>AGE</span>, y <span class='op'>=</span> <span class='va'>n</span>, fill <span class='op'>=</span> <span class='va'>default_payment_next_month</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
@@ -2596,7 +2580,6 @@ Show code
 <span class='va'>credit_sex_graph</span>
 </code></pre>
 </div>
-</details>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="card-default-prediction_files/figure-html5/unnamed-chunk-5-1.png" alt="Figure 2: Distrubution of Default Payment for Age. This graph shows the distribution between each age and the number of default payments 1 (Yes) and 0 (No) in the training data set. The graph shows that older ages around 60+ have a higher rate of default payment, which could be attributed to smaller amounts of data points from the age range. " width="624" />
 <p class="caption">
@@ -2607,10 +2590,6 @@ Figure 3: Figure 2: Distrubution of Default Payment for Age. This graph shows th
 <h2 id="training">Training</h2>
 <p>The next step of our analysis was building our recipe, model and workflow. For our model we used the rectangular method of prediction and tuned our neighbors function. We used tune instead of placing an arbitrary number because we are trying to determine, with the tune function, what the most accurate K nearest neighbors value is. Next, for our recipe, we identified the variable we are trying to predict <code>(default_payment_next_month)</code> and our predictor variables (EDUCATION and AGE). We are building the recipe on our training data set, because as we previously mentioned, we do not want to touch the test set at all until the final analysis/prediction/classification. For our recipe, we also scaled and centered all of our predictor variables. Following the recipe, we created our vfold function. We created the vfold function so that we can get a better K nearest neighbors value estimate by splitting the data multiple ways and averaging the results. We decided to fold the data set 5 times, anymore than this and we found we were waiting for significant amounts of time for the Jupyter Notebook to run. To effectively use our vfold function, we decided to create a tible with the sequences 1 through 200 for K nearest values 1 through 200. We will use this in our workflow to find the most accurate K nearest neighbors value. Lastly, we were putting the model, recipe and vfold functions all together into our workflow. We added the recipe, then the model. Following this, we added a <code>tune_grid</code> function which included our vfold function as well as the grid tibble we previously mentioned. To conclude our workflow, we are collecting the metrics with; <code>collect_metrics()</code>.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 <span class='va'>knn_spec</span> <span class='op'>&lt;-</span> <span class='fu'>nearest_neighbor</span><span class='op'>(</span>weight_func <span class='op'>=</span> <span class='st'>"rectangular"</span>, neighbors <span class='op'>=</span> <span class='fu'>tune</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
@@ -2630,7 +2609,6 @@ Show code
 <span class='va'>credit_fit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/data.table.html'>data.table</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <pre><code>    neighbors  .metric .estimator      mean n      std_err
  1:         1 accuracy     binary 0.7778381 5 0.0010189829
  2:         1  roc_auc     binary 0.5013076 5 0.0014980903
@@ -2699,10 +2677,6 @@ Show code
 <h2 id="finding-the-best-k-for-the-model">Finding the best K for the model</h2>
 <p>After graphing our findings to find the best K value, we decided on the best K as 15. We chose the K value with the highest accuracy.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 <span class='va'>accuracies</span> <span class='op'>&lt;-</span> <span class='va'>credit_fit</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> 
@@ -2717,7 +2691,6 @@ Show code
 <span class='va'>accuracy_versus_k</span>
 </code></pre>
 </div>
-</details>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
 <img src="card-default-prediction_files/figure-html5/unnamed-chunk-7-1.png" alt="The graph shows that the K with the highest accuracy estimate is 15, which is the K we chose. Although we tuned with grid = 100, the K values only went up to 15. We asked a TA on how to fix this, but they didn't know so we stuck with the choice of K = 15." width="624" />
 <p class="caption">
@@ -2727,10 +2700,6 @@ Figure 4: The graph shows that the K with the highest accuracy estimate is 15, w
 </div>
 <p><span style="color:black; font-size:16px"> Following this, we took our new K value and built out our new model spec with the K value set to 15. We used the same recipe as before and then added the recipe and new model to a workflow and fit the training data. Next, we began predicting our test set with this final model and binded the columns so that we would be able to see the predicted class and the true class of the test data set. Next we made a confusion matrix which included the true classifier values as well as the predicted classifier values from our dataset. With these predictions we were able to predict the accuracy of our model which was 77.9%. </span></p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 <span class='va'>knn_final</span> <span class='op'>&lt;-</span> <span class='fu'>nearest_neighbor</span><span class='op'>(</span>weight_func <span class='op'>=</span> <span class='st'>"rectangular"</span>, neighbors <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
@@ -2742,13 +2711,8 @@ Show code
       <span class='fu'>fit</span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>credit_train</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 <span class='va'>credit_predictions</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>credit_final</span>, <span class='va'>credit_test</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span>
@@ -2762,7 +2726,6 @@ Show code
 <span class='va'>credit_conf_mat</span> 
 </code></pre>
 </div>
-</details>
 <pre><code>          Truth
 Prediction    0    1
          0 1434  406
@@ -2770,32 +2733,22 @@ Prediction    0    1
 </div>
 <h4 id="accuracy"><em>Accuracy</em></h4>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>accuracy</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/slice.html'>slice</a></span><span class='op'>(</span><span class='va'>credit_metrics</span>, <span class='fl'>1</span><span class='op'>)</span> <span class='op'><a href='https://rdrr.io/pkg/igraph/man/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span>
 <span class='va'>accuracy</span>
 </code></pre>
 </div>
-</details>
 <pre><code>[1] 0.7785016</code></pre>
 </div>
 <h4 id="metric-confusion-matrix">Metric confusion matrix</h4>
 <p>The prediction, metrics, and confusion matrix’s results on the testing set, producing an accuracy of about 78%.</p>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ctable</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>as.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1436</span>, <span class='fl'>406</span>, <span class='fl'>0</span>, <span class='fl'>0</span><span class='op'>)</span>, nrow <span class='op'>=</span> <span class='fl'>2</span>, byrow <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/fourfoldplot.html'>fourfoldplot</a></span><span class='op'>(</span><span class='va'>ctable</span>, color <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"#CC6666"</span>, <span class='st'>"#99CC99"</span><span class='op'>)</span>,
              conf.level <span class='op'>=</span> <span class='fl'>0</span>, margin <span class='op'>=</span> <span class='fl'>1</span>, main <span class='op'>=</span> <span class='st'>"Confusion Matrix"</span><span class='op'>)</span>
 </code></pre>
 </div>
-</details>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-11"></span>
 <img src="card-default-prediction_files/figure-html5/unnamed-chunk-11-1.png" alt="Confusion Matrix Graph. This graph shows the finding of our confusion matrix, which proportionally shows correctly classified vs incorrectly classified." width="624" />
 <p class="caption">
@@ -2805,10 +2758,6 @@ Figure 5: Confusion Matrix Graph. This graph shows the finding of our confusion 
 </div>
 <h4 id="accuracy-pie-chart">Accuracy Pie Chart</h4>
 <div class="layout-chunk" data-layout="l-body">
-<details>
-<summary>
-Show code
-</summary>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
   group <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Percent Correct"</span>, <span class='st'>"Percent Incorrect"</span><span class='op'>)</span>,
@@ -2824,7 +2773,6 @@ Show code
 <span class='va'>pie</span>
 </code></pre>
 </div>
-</details>
 <div class="figure"><span style="display:block;" id="fig:unnamed-chunk-12"></span>
 <img src="card-default-prediction_files/figure-html5/unnamed-chunk-12-1.png" alt=" Summary Pie Chart Of Our Finding. This pie chart summarizes the accuracy of our findings, which is correct about 78% of the time." width="624" />
 <p class="caption">
