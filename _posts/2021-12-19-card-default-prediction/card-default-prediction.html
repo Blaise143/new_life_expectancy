@@ -87,9 +87,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Card Default Visualization and Prediction</title>
+  <title>Credit Card Default Prediction</title>
 
-  <meta property="description" itemprop="description" content="The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+  <meta property="description" itemprop="description" content="This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model."/>
 
 
   <!--  https://schema.org/Article -->
@@ -97,25 +97,23 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <meta property="article:created" itemprop="dateCreated" content="2021-12-17"/>
   <meta name="article:author" content="Blaise Appolinary"/>
   <meta name="article:author" content="Amogh Joshi"/>
-  <meta name="article:author" content="Derrick Cheng"/>
-  <meta name="article:author" content="Michael Hoefert"/>
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Card Default Visualization and Prediction"/>
+  <meta property="og:title" content="Credit Card Default Prediction"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+  <meta property="og:description" content="This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model."/>
   <meta property="og:locale" content="en_US"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Card Default Visualization and Prediction"/>
-  <meta property="twitter:description" content="The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: &quot;How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?&quot;"/>
+  <meta property="twitter:title" content="Credit Card Default Prediction"/>
+  <meta property="twitter:description" content="This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model."/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Card Default Visualization and Prediction"]},{"type":"character","attributes":{},"value":["The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\"\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://ca.linkedin.com/in/blaise-appolinary-038a42179"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amogh Joshi"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Derrick Cheng"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Michael Hoefert"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Credit Card Default Prediction"]},{"type":"character","attributes":{},"value":["This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Blaise Appolinary"]},{"type":"character","attributes":{},"value":["https://ca.linkedin.com/in/blaise-appolinary-038a42179"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Amogh Joshi"]}]}]},{"type":"character","attributes":{},"value":["2021-12-17"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1466,7 +1464,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Card Default Visualization and Prediction","description":"The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: \"How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?\"","authors":[{"author":"Blaise Appolinary","authorURL":"https://ca.linkedin.com/in/blaise-appolinary-038a42179","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Amogh Joshi","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Derrick Cheng","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Michael Hoefert","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000-08:00","citationText":"Appolinary, et al., 2021"}
+{"title":"Credit Card Default Prediction","description":"This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model.","authors":[{"author":"Blaise Appolinary","authorURL":"https://ca.linkedin.com/in/blaise-appolinary-038a42179","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""},{"author":"Amogh Joshi","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-12-17T00:00:00.000-08:00","citationText":"Appolinary & Joshi, 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1476,20 +1474,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Card Default Visualization and Prediction</h1>
+<h1>Credit Card Default Prediction</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: “How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?”</p></p>
+<p><p>This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model.</p></p>
 </div>
 
 <div class="d-byline">
   Blaise Appolinary <a href="https://ca.linkedin.com/in/blaise-appolinary-038a42179" class="uri">https://ca.linkedin.com/in/blaise-appolinary-038a42179</a> 
   
 ,   Amogh Joshi  
-  
-,   Derrick Cheng  
-  
-,   Michael Hoefert  
   
 <br/>2021-12-17
 </div>
@@ -1499,6 +1493,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
+<li><a href="#introduction"><em>Introduction</em></a></li>
 <li><a href="#methods"><em>Methods</em></a></li>
 <li><a href="#exploratory-data-analysis"><em>Exploratory Data Analysis</em></a>
 <ul>
@@ -1518,6 +1513,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </ul>
 </nav>
 </div>
+<h1 id="introduction"><em>Introduction</em></h1>
+<p>The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: “How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?”</p>
 <p><span style="color:black; font-size:16px"> Why did we choose these predictor variables over the numerous other variables in the data set? Our first objective was to eliminate those variables we felt did not contribute at all to the probability of default payments, such as sex. Next, we did some external research and found that of the remaining variables that we had access to in the dataset, age and education matched the best predictors of default probability from our external research (T. M. Alam et al., 2020). Thus, we will build our classification model on these two predictor models to determine the accuracy to which we can predict default probability. </span></p>
 <p><span style="color:black; font-size:16px"> The dataset we will be using has 25 variables and 30002 records. The data set includes the variables we mentioned above and others such as the bill amounts each client has as well as the payments each client has made towards those bill amounts. Education is classified with numbers 1 (Graduate School), 2 (University), 3 (High School), and 4 (Others). Age is simply the numeric value of the individual’s age. The default payment variable is represented by 1’s (Yes, did default) and 0’s (No, did not default). </span></p>
 <p><span style="color:black; font-size:16px"> We are interested in this question since credit card default is a real problem in the world, with credit card delinquency rates increasing by 0.180% year on year from 2017 to 2018, in Taiwan (CEIC, 2018). Using the models we create, we can determine the risk of lending credit to an individual with a high risk of default and therefore protect the creditors. </span></p>

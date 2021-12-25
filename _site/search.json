@@ -2,18 +2,18 @@
   "articles": [
     {
       "path": "about.html",
-      "title": "About this blog",
-      "description": "Some additional details about the blog",
+      "title": "About Me",
+      "description": "My name is Blaise Appolinary, a Mathematics and Statistics student at the University of British Columbia. ",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-19T10:49:15-08:00"
+      "last_modified": "2021-12-24T19:13:04-08:00"
     },
     {
       "path": "index.html",
-      "title": "My Projects",
+      "title": "Data Projects",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-22T23:08:12-08:00"
+      "last_modified": "2021-12-24T19:23:02-08:00"
     }
   ],
   "collections": ["posts/posts.json"]

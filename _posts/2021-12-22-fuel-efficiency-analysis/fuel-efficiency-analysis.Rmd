@@ -1,7 +1,7 @@
 ---
 title: "Fuel Efficiency Statistical Analysis"
 description: |
-  This is an Inferential Statistics project where concepts like Hypothesis Testing and Confidence intervals are used to analyse Cars data to test which fuel type is more efficient.
+  This is an Inferential Statistics project where concepts including Hypothesis Testing and Confidence intervals are used to analyse Cars data to test which fuel type is more efficient.
 author:
   - name: Blaise Appolinary
     url: https://ca.linkedin.com/in/blaise-appolinary-038a42179

@@ -1,10 +1,10 @@
 ---
-title: "Life Expectancy Analysis"
+title: "Life Expectancy Prediction Analysis"
 description: |
-  A short description of the post.
+  This project analyses World Health Organisation(WHO) data to predict life expectancy in different countries. Multiple linear regression model is used to draw insights. Different dimensionality reduction techniques were used to pick the best model with the minimal root mean squared error(RMSE). 
 author:
   - name: Blaise Appolinary
-    url: https://example.com/norajones
+    url: https://ca.linkedin.com/in/blaise-appolinary-038a42179
 date: 2021-12-17
 output:
   distill::distill_article:

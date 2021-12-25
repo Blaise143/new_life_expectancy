@@ -1,19 +1,21 @@
 ---
-title: "Card Default Visualization and Prediction"
+title: "Credit Card Default Prediction"
 description: |
-  The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: "How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?"
+  This project uses the K-nearest Neighbour classification model to predict the likelihood of an individual in Taiwan to default on their next payment. The TidyModels package is used to build the model.
 author:
   - name: Blaise Appolinary
     url: https://ca.linkedin.com/in/blaise-appolinary-038a42179
   - name: Amogh Joshi
-  - name: Derrick Cheng
-  - name: Michael Hoefert
 date: 2021-12-17
 output:
   distill::distill_article:
     self_contained: false
     toc: yes
 ---
+
+# *Introduction*
+The dataset we are using is an aggregate of credit card data from various individuals in Taiwan that includes variables such as education, age, whether or not they defaulted on a payment and others. Default on payment means that an individual did not pay their credit card bills. Our question for this data analytics project is: "How accurately can Education, and Age predict the likelihood of an individual defaulting on their next credit card payment?"
+
 <span style = "color:black; font-size:16px"> Why did we choose these predictor variables over the numerous other variables in the data set? Our first objective was to eliminate those variables we felt did not contribute at all to the probability of default payments, such as sex. Next, we did some external research and found that of the remaining variables that we had access to in the dataset, age and education matched the best predictors of default probability from our external research (T. M. Alam et al., 2020). Thus, we will build our classification model on these two predictor models to determine the accuracy to which we can predict default probability. </span>
 
 <span style = "color:black; font-size:16px"> The dataset we will be using has 25 variables and 30002 records. The data set includes the variables we mentioned above and others such as the bill amounts each client has as well as the payments each client has made towards those bill amounts. Education is classified with numbers 1 (Graduate School), 2 (University), 3 (High School), and 4 (Others). Age is simply the numeric value of the individual's age. The default payment variable is represented by 1’s (Yes, did default) and 0’s (No, did not default). </span>
