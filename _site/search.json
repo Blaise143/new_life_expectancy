@@ -3,17 +3,16 @@
     {
       "path": "about.html",
       "title": "About Me",
-      "description": "My name is Blaise Appolinary, a Mathematics and Statistics student at the University of British Columbia. ",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-24T19:13:04-08:00"
+      "contents": "\r\nMy name is Blaise Appolinary, a Mathematics and Statistics student at the University of British Columbia in Vancouver, Canada. I am currently a part of a breast cancer research team where me and my team, under the guidance of a PhD Bioinformatics student, are using machine learning algorithms on gene expression data to classify breast cancer subtypes and analyse how different genes affect the classification of breast cancer. I am very passionate about the process of drawing insights from complex data and always work to better my skills at working with data. Currently, I am looking for an internship role in the data field.\r\nPlease feel free to contact me if you have any questions or just for a chat at blaiseappo@gmail.com.\r\n\r\n\r\n\r\n",
+      "last_modified": "2022-01-14T12:08:58-08:00"
     },
     {
       "path": "index.html",
       "title": "Data Projects",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-12-24T19:23:02-08:00"
+      "last_modified": "2022-01-14T11:43:24-08:00"
     }
   ],
   "collections": ["posts/posts.json"]
